@@ -1,0 +1,63 @@
+schema_version: "1.0.0"
+playbook:
+  id: ransomware_activity
+  version: "1.0.0"
+  name: Ransomware Encryption Investigation
+  category: malware_incident
+  description: >
+    Evaluate forensic evidence for unauthorized high-volume file encryption, shadow copy deletion,
+    and ransom note creation.
+  required_sources:
+    - process_execution
+    - file_activity
+    - windows_event_logs
+  evidence_requirements:
+    - id: mass_file_modification
+      label: Mass File Modification / Creation
+      event_types:
+        - file_create
+        - file_access
+      required_fields:
+        - time.timestamp_utc
+        - file.path
+      weight: 1.5
+
+    - id: suspicious_process
+      label: Unrecognized Process Execution
+      event_types:
+        - process_creation
+      required_fields:
+        - time.timestamp_utc
+        - process.name
+      weight: 1.0
+
+    - id: ransom_note_dropped
+      label: Ransom Note File Indicator
+      event_types:
+        - file_create
+      required_fields:
+        - file.name
+      weight: 1.2
+
+  claims:
+    - id: automated_encryption
+      statement: >
+        An unauthorized process executed mass file alteration consistent with ransomware encryption.
+      required_predicates:
+        - mass_file_modification
+        - suspicious_process
+      corroboration_predicates:
+        - ransom_note_dropped
+      verification_policy:
+        mode: deterministic
+        missing_data: insufficient
+        conflicting_data: conflicting
+        human_review: true
+
+  recommendations:
+    - trigger: missing_suspicious_process
+      action: >
+        Acquire memory dump and Sysmon Process Creation (Event ID 1) logs to isolate parent/child process trees.
+    - trigger: missing_ransom_note_dropped
+      action: >
+        Scan desktop, documents, and root directories for read-me text or HTML ransom indicators.

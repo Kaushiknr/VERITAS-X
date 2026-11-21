@@ -1,0 +1,80 @@
+schema_version: "1.0.0"
+playbook:
+  id: usb_data_exfiltration
+  version: "1.0.0"
+  name: USB Data Exfiltration Investigation
+  category: insider_threat
+  description: >
+    Assess whether available forensic evidence supports a suspected unauthorized
+    data exfiltration to removable USB storage media.
+  required_sources:
+    - windows_event_logs
+    - usb_device_history
+    - file_activity
+  evidence_requirements:
+    - id: usb_connection
+      label: USB Device Connection Record
+      event_types:
+        - usb_connection
+      required_fields:
+        - time.timestamp_utc
+        - host.hostname
+        - device.identifier
+      weight: 1.0
+
+    - id: sensitive_file_access
+      label: Sensitive File Access Event
+      event_types:
+        - file_access
+      required_fields:
+        - time.timestamp_utc
+        - actor.username
+        - file.path
+      weight: 1.0
+
+    - id: removable_media_write
+      label: Removable Media Write Activity
+      event_types:
+        - removable_media_write
+        - file_create
+      required_fields:
+        - time.timestamp_utc
+        - device.identifier
+        - file.path
+      weight: 1.5
+
+    - id: destination_hash
+      label: Destination File Hash Match
+      event_types:
+        - file_hash_observed
+      required_fields:
+        - file.sha256
+        - device.identifier
+      weight: 1.2
+
+  claims:
+    - id: usb_file_transfer
+      statement: >
+        A specified sensitive file was transferred to an unauthorized removable USB device.
+      required_predicates:
+        - usb_connection
+        - sensitive_file_access
+        - removable_media_write
+      corroboration_predicates:
+        - destination_hash
+      verification_policy:
+        mode: deterministic
+        missing_data: insufficient
+        conflicting_data: conflicting
+        human_review: true
+
+  recommendations:
+    - trigger: missing_removable_media_write
+      action: >
+        Review available file-system USN journals, LNK files, and shellbag artifacts to uncover destination-write evidence.
+    - trigger: missing_usb_connection
+      action: >
+        Collect Windows SYSTEM registry hive (MountedDevices / USBSTOR) or setupapi.dev.log from the target host.
+    - trigger: missing_destination_hash
+      action: >
+        Acquire forensic image of the suspected USB flash drive to compute SHA-256 baseline and verify block contents.

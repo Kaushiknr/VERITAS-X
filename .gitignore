@@ -1,0 +1,38 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# PyInstaller & Build artifacts
+build/
+dist/
+*.spec
+
+# Pytest & Cache
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Node & Frontend dependencies
+node_modules/
+web/node_modules/
+
+# Local runtime database & evidence data
+data/vault/
+data/reports/
+data/db/
+data/index_storage/
+
+# Keep real datasets directory
+!data/real_datasets/
+
+# Environment files
+.env
+.env.local
+
+# Operating System files
+.DS_Store
+Thumbs.db
+desktop.ini
+*.log
+!data/real_datasets/*.log

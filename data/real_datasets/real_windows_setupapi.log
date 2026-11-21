@@ -1,0 +1,1000 @@
+     sto:      {Core Driver Package Import: usb_jtag_debug_unit.inf_amd64_73ddb8a0670eb15d} 13:23:50.727
+     sto:           {DRIVERSTORE IMPORT BEGIN} 13:23:50.728
+     sto:           {DRIVERSTORE IMPORT BEGIN: exit(0x00000000)} 13:23:50.728
+     cpy:           {Copy Directory: C:\Windows\System32\DriverStore\Temp\{46c7fa53-41cb-6a42-b53f-7be56a5cfc2d}} 13:23:50.728
+     cpy:                Target Path = C:\Windows\System32\DriverStore\FileRepository\usb_jtag_debug_unit.inf_amd64_73ddb8a0670eb15d
+     cpy:                {Copy Directory: C:\Windows\System32\DriverStore\Temp\{46c7fa53-41cb-6a42-b53f-7be56a5cfc2d}\amd64} 13:23:50.729
+     cpy:                     Target Path = C:\Windows\System32\DriverStore\FileRepository\usb_jtag_debug_unit.inf_amd64_73ddb8a0670eb15d\amd64
+     cpy:                {Copy Directory: exit(0x00000000)} 13:23:50.731
+     cpy:           {Copy Directory: exit(0x00000000)} 13:23:50.731
+     idb:           {Register Driver Package: C:\Windows\System32\DriverStore\FileRepository\usb_jtag_debug_unit.inf_amd64_73ddb8a0670eb15d\usb_jtag_debug_unit.inf} 13:23:50.749
+     idb:                Created driver package object 'usb_jtag_debug_unit.inf_amd64_73ddb8a0670eb15d' in SYSTEM database node.
+     idb:                Created driver INF file object 'oem13.inf' in SYSTEM database node.
+     idb:                Registered driver package 'usb_jtag_debug_unit.inf_amd64_73ddb8a0670eb15d' with 'oem13.inf'.
+     idb:           {Register Driver Package: exit(0x00000000)} 13:23:50.751
+     idb:           {Publish Driver Package: C:\Windows\System32\DriverStore\FileRepository\usb_jtag_debug_unit.inf_amd64_73ddb8a0670eb15d\usb_jtag_debug_unit.inf} 13:23:50.751
+     idb:                Activating driver package 'usb_jtag_debug_unit.inf_amd64_73ddb8a0670eb15d'.
+     cpy:                Published 'usb_jtag_debug_unit.inf_amd64_73ddb8a0670eb15d\usb_jtag_debug_unit.inf' to 'oem13.inf'.
+     idb:                Indexed 2 device IDs for 'usb_jtag_debug_unit.inf_amd64_73ddb8a0670eb15d'.
+!    sto:                Ignoring changes to inbox device class {88bae032-5a81-49f0-bc3d-a4ff138216d6} through ClassInstall32 section.
+     sto:                Flushed driver database node 'SYSTEM'. Time = 0 ms
+     idb:           {Publish Driver Package: exit(0x00000000)} 13:23:50.757
+     sto:           {DRIVERSTORE IMPORT END} 13:23:50.758
+     dvi:                Flushed all driver package files to disk. Time = 0 ms
+     sig:                Installed catalog 'USB_JTAG_debug_unit.cat' as 'oem13.cat'.
+     sto:           {DRIVERSTORE IMPORT END: exit(0x00000000)} 13:23:50.766
+     sto:      {Core Driver Package Import: exit(0x00000000)} 13:23:50.766
+     sto: {Stage Driver Package: exit(0x00000000)} 13:23:50.768
+<<<  Section end 2026/11/18 13:23:50.803
+<<<  [Exit status: SUCCESS]
+
+
+>>>  [SetupCopyOEMInf - C:\Windows\System32\DriverStore\FileRepository\usb_jtag_debug_unit.inf_amd64_73ddb8a0670eb15d\usb_jtag_debug_unit.inf]
+>>>  Section start 2026/11/18 13:23:50.804
+      cmd: "C:\Users\kaush\OneDrive\Documents\ArduinoData\packages\arduino\hardware\esp32\2.0.18-arduino.5\drivers\dpinst-amd64.exe"  /SE /SW /SA
+     inf: Copy style: 0x00040000
+     inf: Driver Store Path: C:\Windows\System32\DriverStore\FileRepository\usb_jtag_debug_unit.inf_amd64_73ddb8a0670eb15d\usb_jtag_debug_unit.inf
+     inf: Published Inf Path: C:\Windows\INF\oem13.inf
+     sig: Installing catalog USB_JTAG_debug_unit.cat as: oem13.CAT
+<<<  Section end 2026/11/18 13:23:50.812
+<<<  [Exit status: SUCCESS]
+
+
+[Boot Session: 2026/11/18 19:55:15.500]
+
+>>>  [Restart Device - PCI\VEN_8086&DEV_51F0&SUBSYS_00948086&REV_01\3&11583659&0&A3]
+>>>  Section start 2026/11/18 20:04:27.253
+      cmd: C:\Windows\system32\svchost.exe -k LocalSystemNetworkRestricted -p
+     dvi: Device Status: 0x0180200a
+     dvi: Install Device: Removing device 'PCI\VEN_8086&DEV_51F0&SUBSYS_00948086&REV_01\3&11583659&0&A3' and sub-tree. 20:04:27.258
+     dvi: Install Device: Removing device sub-tree completed. 20:04:28.779
+!    dvi: Query-removal during install of 'PCI\VEN_8086&DEV_51F0&SUBSYS_00948086&REV_01\3&11583659&0&A3' was vetoed by '{5d624f94-8850-40c3-a3fa-a4fd2080baf3}\vwifimp_wfd\4&28b4cf00&0&12?' (veto type 6: PNP_VetoDevice).
+!    dvi: Device required reboot: Query remove failed (install) 0x17: CR_REMOVE_VETOED.
+<<<  Section end 2026/11/18 20:04:29.208
+<<<  [Exit status: SUCCESS]
+
+
+[Boot Session: 2026/11/18 20:23:12.500]
+
+>>>  [Device Install (Hardware initiated) - USB\Vid_0E0F&Pid_0001\12345]
+>>>  Section start 2026/11/18 20:26:24.581
+     ump: Install needed due to device having problem code CM_PROB_NOT_CONFIGURED
+     utl: {Select Drivers - USB\Vid_0E0F&Pid_0001\12345} 20:26:24.611
+     utl:      Driver Node:
+     utl:           Status         - Selected
+     utl:           Driver INF     - oem174.inf (C:\Windows\System32\DriverStore\FileRepository\vmusb.inf_amd64_bb336ccced75363c\vmusb.inf)
+     utl:           Class GUID     - {36fc9e60-c465-11cf-8056-444553540000}
+     utl:           Driver Version - 09/28/2022,4.3.1.6
+     utl:           Configuration  - USB\Vid_0E0F&Pid_0001
+     utl:           Driver Rank    - 00FF0000
+     utl:           Signer Score   - WHQL (0D000005)
+     utl:           Submission ID  - 30099670_14525314815334347_1152921505696579788
+     utl:           Attributes     - Universal
+     utl: {Select Drivers - exit(0x00000000} 20:26:24.619
+     dvi: Install flags: 0x00010000
+     dvi: {Core Device Install} 20:26:24.624
+     dvi:      {Configure Device - USB\Vid_0E0F&Pid_0001\12345} 20:26:24.626
+     dvi:           Device Status: 0x01806400 [0x01 - 0xc0000493]
+     dvi:           Config Flags: 0x00000000
+     dvi:           Parent Device: USB\ROOT_HUB30\4&1327df74&0&0
+     sto:           {Configure Driver Package: C:\Windows\System32\DriverStore\FileRepository\vmusb.inf_amd64_bb336ccced75363c\vmusb.inf} 20:26:24.628
+     sto:                Source Filter  = USB\Vid_0E0F&Pid_0001
+     inf:                Config Options = IsolationCompat
+     inf:                Class GUID     = {36fc9e60-c465-11cf-8056-444553540000}
+     inf:                Class Options  = Configurable BootCritical
+     inf:                {Configure Driver: VMware USB Device}
+     inf:                     Section Name = _Install1.NT
+     inf:                     {Add Service: vmusb}
+     inf:                          Flags         = 0x2
+     inf:                          Start Type    = 3
+     inf:                          Service Type  = 1
+     inf:                          Error Control = 1
+     inf:                          Image Path    = \SystemRoot\System32\drivers\vmusb.sys
+     inf:                          Display Name  = VMware USB Client Driver
+     inf:                          Created new service 'vmusb'.
+     inf:                     {Add Service: exit(0x00000000)}
+     inf:                     Hardware Id  = USB\Vid_0e0f&Pid_0001
+     inf:                     {Configure Driver Configuration: _Install1.NT}
+     inf:                          Service Name  = vmusb
+     inf:                          Config Flags  = 0x00000000
+     inf:                     {Configure Driver Configuration: exit(0x00000000)}
+     inf:                {Configure Driver: exit(0x00000000)}
+     flq:                {FILE_QUEUE_COMMIT} 20:26:24.654
+     flq:                     Copying 'C:\Windows\System32\DriverStore\FileRepository\vmusb.inf_amd64_bb336ccced75363c\vmusb.sys' to 'C:\Windows\System32\drivers\vmusb.sys'.
+     flq:                {FILE_QUEUE_COMMIT - exit(0x00000000)} 20:26:24.661
+     sto:                Driver configuration complete.
+     dvi:                Existing files modified, may need to restart related services.
+     sto:           {Configure Driver Package: exit(0x00000bc3)} 20:26:24.663
+     dvi:           Restart required for any devices using this driver.
+     dvi:           Install Device: Configuring device. 20:26:24.664
+     dvi:                Configuration: oem174.inf:USB\Vid_0E0F&Pid_0001,*
+     dvi:           Install Device: Configuring device completed. 20:26:24.671
+     dvi:           Device Status: 0x01806000
+     dvi:           {Restarting Devices} 20:26:24.672
+     dvi:                Start: USB\VID_0E0F&PID_0001\12345
+     dvi:           {Restarting Devices exit} 20:26:24.735
+     dvi:      {Configure Device - exit(0x00000000)} 20:26:24.737
+     dvi: {Core Device Install - exit(0x00000000)} 20:26:24.741
+<<<  Section end 2026/11/18 20:26:24.751
+<<<  [Exit status: SUCCESS]
+
+
+[Boot Session: 2026/11/19 12:47:48.500]
+
+>>>  [Device Install (Hardware initiated) - USB\VID_2341&PID_0043\558343236333517071E1]
+>>>  Section start 2026/11/19 13:19:37.076
+     ump: Install needed due to device having problem code CM_PROB_NOT_CONFIGURED
+     utl: {Select Drivers - USB\VID_2341&PID_0043\558343236333517071E1} 13:19:37.105
+     utl:      Driver Node:
+     utl:           Status         - Selected
+     utl:           Driver INF     - usbser.inf (C:\Windows\System32\DriverStore\FileRepository\usbser.inf_amd64_d37d5c5b9f4ee578\usbser.inf)
+     utl:           Class GUID     - {4d36e978-e325-11ce-bfc1-08002be10318}
+     utl:           Driver Version - 06/21/2006,10.0.26100.8521
+     utl:           Configuration  - USB\Class_02&SubClass_02&Prot_01 [UsbSerial_Install.NT]
+     utl:           Driver Rank    - 00FF2003
+     utl:           Signer Score   - Inbox (0D000003)
+     utl:      Driver Node:
+     utl:           Status         - Outranked
+     utl:           Driver INF     - usbser.inf (C:\Windows\System32\DriverStore\FileRepository\usbser.inf_amd64_d37d5c5b9f4ee578\usbser.inf)
+     utl:           Class GUID     - {4d36e978-e325-11ce-bfc1-08002be10318}
+     utl:           Driver Version - 06/21/2006,10.0.26100.8521
+     utl:           Configuration  - USB\Class_02&SubClass_02 [UsbSerial_Install.NT]
+     utl:           Driver Rank    - 00FF2004
+     utl:           Signer Score   - Inbox (0D000003)
+     utl: {Select Drivers - exit(0x00000000} 13:19:37.115
+!    dvi: Device class {4d36e978-e325-11ce-bfc1-08002be10318} is not configurable.
+     dvi: Install flags: 0x00010000
+     dvi: Searching for hardware ID(s):
+     dvi:      usb\vid_2341&pid_0043&rev_0001
+     dvi:      usb\vid_2341&pid_0043
+     dvi: Searching for compatible ID(s):
+     dvi:      usb\compat_vid_2341&class_02&subclass_02&prot_01
+     dvi:      usb\compat_vid_2341&class_02&subclass_02
+     dvi:      usb\compat_vid_2341&class_02
+     dvi:      usb\class_02&subclass_02&prot_01
+     dvi:      usb\class_02&subclass_02
+     dvi:      usb\class_02
+     dvi: Class GUID of device changed to: {4d36e978-e325-11ce-bfc1-08002be10318}.
+     ndv: {Core Device Install} 13:19:37.153
+     dvi:      {Install Device - USB\VID_2341&PID_0043\558343236333517071E1} 13:19:37.156
+     dvi:           Device Status: 0x01806400 [0x01 - 0xc0000495]
+     dvi:           Config Flags: 0x00000000
+     dvi:           Parent Device: USB\ROOT_HUB30\4&1327df74&0&0
+     dvi:           {DIF_ALLOW_INSTALL} 13:19:37.161
+     dvi:                Using exported function 'PortsClassInstaller' in module 'C:\Windows\system32\MsPorts.Dll'.
+     dvi:                Class installer == MsPorts.Dll,PortsClassInstaller
+     dvi:                Class installer: Enter 13:19:37.177
+     dvi:                Class installer: Exit
+     dvi:                Default installer: Enter 13:19:37.178
+     dvi:                Default installer: Exit
+     dvi:           {DIF_ALLOW_INSTALL - exit(0xe000020e)} 13:19:37.179
+     dvi:           {DIF_INSTALLDEVICEFILES} 13:19:37.183
+     dvi:                Class installer: Enter 13:19:37.184
+     dvi:                Class installer: Exit
+     dvi:                Default installer: Enter 13:19:37.185
+     dvi:                Default installer: Exit
+     dvi:           {DIF_INSTALLDEVICEFILES - exit(0x00000000)} 13:19:37.193
+     dvi:           {_SCAN_FILE_QUEUE} 13:19:37.193
+     flq:                File 'C:\Windows\system32\DRIVERS\usbser.sys' pruned from copy.
+     dvi:           {_SCAN_FILE_QUEUE - exit(0x00000000)} 13:19:37.237
+     flq:           {FILE_QUEUE_COMMIT} 13:19:37.238
+     flq:           {FILE_QUEUE_COMMIT - exit(0x00000000)} 13:19:37.238
+     dvi:           {DIF_REGISTER_COINSTALLERS} 13:19:37.239
+     dvi:                Reset Device: Resetting device configuration. 13:19:37.240
+     dvi:                Reset Device: Resetting device configuration completed. 13:19:37.242
+     dvi:                Class installer: Enter 13:19:37.243
+     dvi:                Class installer: Exit
+     dvi:                Default installer: Enter 13:19:37.243
+     inf:                     {Install from INF Section - UsbSerial_Install.NT.CoInstallers} 13:19:37.245
+     inf:                          Flags         - 0x001001ee
+     inf:                     {Install from INF Section - exit(0x00000000)} 13:19:37.246
+     dvi:                Default installer: Exit
+     dvi:           {DIF_REGISTER_COINSTALLERS - exit(0x00000000)} 13:19:37.246
+     dvi:           {DIF_INSTALLINTERFACES} 13:19:37.247
+     dvi:                Class installer: Enter 13:19:37.247
+     dvi:                Class installer: Exit
+     dvi:                Default installer: Enter 13:19:37.248
+     dvi:                Default installer: Exit
+     dvi:           {DIF_INSTALLINTERFACES - exit(0x00000000)} 13:19:37.249
+     dvi:           {DIF_INSTALLDEVICE} 13:19:37.249
+     dvi:                Class installer: Enter 13:19:37.249
+     inf:                     {Install from INF Section - UsbSerial_Install.NT} 13:19:37.251
+     inf:                          Flags         - 0x00000004
+     inf:                     {Install from INF Section - exit(0x00000000)} 13:19:37.251
+     dvi:                     {Install DEVICE}
+     inf:                          {Install from INF Section - UsbSerial_Install.NT} 13:19:37.253
+     inf:                               Flags         - 0x001005ee
+     inf:                          {Install from INF Section - exit(0x00000000)} 13:19:37.255
+     dvi:                          {Writing Device Properties}
+     dvi:                               Strong Name=usbser.inf:db04a16cd4b276e3:UsbSerial_Install:10.0.26100.8521:usb\class_02&subclass_02&prot_01
+     dvi:                          {Writing Device Properties - Complete}
+     inf:                          AddService=usbser,0x00000002,UsbSerial_Service_Install,UsbSerial_EventLog_Install  (usbser.inf line 74)
+     dvi:                          Add Service: Modified existing service 'usbser'.
+     inf:                          {Install from INF Section - UsbSerial_Service_Install} 13:19:37.264
+     inf:                               Flags         - 0x00100004
+     inf:                          {Install from INF Section - exit(0x00000000)} 13:19:37.265
+     inf:                          {Install from INF Section - UsbSerial_EventLog_Install} 13:19:37.265
+     inf:                               Flags         - 0x00100004
+     inf:                          {Install from INF Section - exit(0x00000000)} 13:19:37.265
+     dvi:                     {Install DEVICE exit (0x00000000)}
+     dvi:                     Install Device: Configuring device class. 13:19:37.269
+     dvi:                     Install Device: Configuring device class completed. 13:19:37.270
+     dvi:                     Device Status: 0x01806400 [0x01 - 0xc0000495]
+     dvi:                     Install Device: Starting device 'USB\VID_2341&PID_0043\558343236333517071E1'. 13:19:37.272
+     dvi:                     Install Device: Starting device completed. 13:19:37.307
+     dvi:                Class installer: Exit
+     dvi:           {DIF_INSTALLDEVICE - exit(0x00000000)} 13:19:37.311
+     dvi:           {DIF_NEWDEVICEWIZARD_FINISHINSTALL} 13:19:37.313
+     dvi:                Class installer: Enter 13:19:37.313
+     dvi:                Class installer: Exit
+     dvi:                Default installer: Enter 13:19:37.313
+     dvi:                Default installer: Exit
+     dvi:           {DIF_NEWDEVICEWIZARD_FINISHINSTALL - exit(0xe000020e)} 13:19:37.314
+     dvi:      {Install Device - exit(0x00000000)} 13:19:37.316
+     dvi: {Core Device Install - exit(0x00000000)} 13:19:37.316
+     dvi: {DIF_DESTROYPRIVATEDATA} 13:19:37.317
+     dvi:      Class installer: Enter 13:19:37.317
+     dvi:      Class installer: Exit
+     dvi:      Default installer: Enter 13:19:37.319
+     dvi:      Default installer: Exit
+     dvi: {DIF_DESTROYPRIVATEDATA - exit(0xe000020e)} 13:19:37.319
+<<<  Section end 2026/11/19 13:19:37.332
+<<<  [Exit status: SUCCESS]
+
+
+>>>  [Setup Import Driver Package - c:\users\kaush\onedrive\documents\arduinodata\packages\arduino\hardware\avr\1.8.8\drivers\adafruitcircuitplayground.inf]
+>>>  Section start 2026/11/19 13:21:28.537
+      cmd: "C:\Users\kaush\OneDrive\Documents\ArduinoData\packages\arduino\hardware\avr\1.8.8\drivers\dpinst-amd64.exe"  /LM /SW /SA
+     inf: Provider: Adafruit Industries LLC
+     inf: Class GUID: {4D36E978-E325-11CE-BFC1-08002BE10318}
+     inf: Driver Version: 02/25/2016,6.2.2600.0
+     inf: Catalog File: AdafruitCircuitPlayground.cat
+     sto: {Copy Driver Package: c:\users\kaush\onedrive\documents\arduinodata\packages\arduino\hardware\avr\1.8.8\drivers\adafruitcircuitplayground.inf} 13:21:28.543
+     sto:      Driver Package = c:\users\kaush\onedrive\documents\arduinodata\packages\arduino\hardware\avr\1.8.8\drivers\adafruitcircuitplayground.inf
+     sto:      Flags          = 0x00000007
+     sto:      Destination    = C:\Users\kaush\AppData\Local\Temp\{27affdd4-6242-9841-9865-39a01ec4ff4c}
+     sto:      Copying driver package files to 'C:\Users\kaush\AppData\Local\Temp\{27affdd4-6242-9841-9865-39a01ec4ff4c}'.
+     flq:      {FILE_QUEUE_COMMIT} 13:21:28.570
+     flq:           Copying 'c:\users\kaush\onedrive\documents\arduinodata\packages\arduino\hardware\avr\1.8.8\drivers\AdafruitCircuitPlayground.cat' to 'C:\Users\kaush\AppData\Local\Temp\{27affdd4-6242-9841-9865-39a01ec4ff4c}\AdafruitCircuitPlayground.cat'.
+     flq:           Copying 'c:\users\kaush\onedrive\documents\arduinodata\packages\arduino\hardware\avr\1.8.8\drivers\adafruitcircuitplayground.inf' to 'C:\Users\kaush\AppData\Local\Temp\{27affdd4-6242-9841-9865-39a01ec4ff4c}\adafruitcircuitplayground.inf'.
+     flq:      {FILE_QUEUE_COMMIT - exit(0x00000000)} 13:21:28.584
+     sto: {Copy Driver Package: exit(0x00000000)} 13:21:28.585
+     ump: Import flags: 0x00000000
+     pol: {Driver package policy check} 13:21:28.615
+     pol: {Driver package policy check - exit(0x00000000)} 13:21:28.615
+     sto: {Stage Driver Package: C:\Users\kaush\AppData\Local\Temp\{27affdd4-6242-9841-9865-39a01ec4ff4c}\adafruitcircuitplayground.inf} 13:21:28.616
+     inf:      Provider       = Adafruit Industries LLC
+     inf:      Class GUID     = {4d36e978-e325-11ce-bfc1-08002be10318}
+     inf:      Driver Version = 02/25/2016,6.2.2600.0
+     inf:      Catalog File   = AdafruitCircuitPlayground.cat
+     inf:      Version Flags  = 0x00000001
+     inf:      {Query Configurability: C:\Users\kaush\AppData\Local\Temp\{27affdd4-6242-9841-9865-39a01ec4ff4c}\adafruitcircuitplayground.inf} 13:21:28.637
+     inf:           Driver package 'adafruitcircuitplayground.inf' is configurable.
+     inf:      {Query Configurability: exit(0x00000000)} 13:21:28.648
+     flq:      {FILE_QUEUE_COMMIT} 13:21:28.650
+     flq:           Copying 'C:\Users\kaush\AppData\Local\Temp\{27affdd4-6242-9841-9865-39a01ec4ff4c}\AdafruitCircuitPlayground.cat' to 'C:\Windows\System32\DriverStore\Temp\{c7772cf6-ab81-b44c-9acb-451fa94ff40b}\AdafruitCircuitPlayground.cat'.
+     flq:           Copying 'C:\Users\kaush\AppData\Local\Temp\{27affdd4-6242-9841-9865-39a01ec4ff4c}\adafruitcircuitplayground.inf' to 'C:\Windows\System32\DriverStore\Temp\{c7772cf6-ab81-b44c-9acb-451fa94ff40b}\adafruitcircuitplayground.inf'.
+     flq:      {FILE_QUEUE_COMMIT - exit(0x00000000)} 13:21:28.661
+     sto:      {DRIVERSTORE IMPORT VALIDATE} 13:21:28.662
+     sig:           Driver package catalog is valid.
+     sig:           {_VERIFY_FILE_SIGNATURE} 13:21:28.675
+     sig:                Key      = adafruitcircuitplayground.inf
+     sig:                FilePath = C:\Windows\System32\DriverStore\Temp\{c7772cf6-ab81-b44c-9acb-451fa94ff40b}\adafruitcircuitplayground.inf
+     sig:                Catalog  = C:\Windows\System32\DriverStore\Temp\{c7772cf6-ab81-b44c-9acb-451fa94ff40b}\AdafruitCircuitPlayground.cat
+!    sig:                Verifying file against specific (valid) catalog failed.
+!    sig:                Error 0x800b0109: A certificate chain processed, but terminated in a root certificate which is not trusted by the trust provider.
+     sig:           {_VERIFY_FILE_SIGNATURE exit(0x800b0109)} 13:21:28.705
+     sig:           {_VERIFY_FILE_SIGNATURE} 13:21:28.708
+     sig:                Key      = adafruitcircuitplayground.inf
+     sig:                FilePath = C:\Windows\System32\DriverStore\Temp\{c7772cf6-ab81-b44c-9acb-451fa94ff40b}\adafruitcircuitplayground.inf
+     sig:                Catalog  = C:\Windows\System32\DriverStore\Temp\{c7772cf6-ab81-b44c-9acb-451fa94ff40b}\AdafruitCircuitPlayground.cat
+     sig:                Success: File is signed in Authenticode(tm) catalog.
+     sig:                Error 0xe0000242: The publisher of an Authenticode(tm) signed catalog has not yet been established as trusted.
+     sig:           {_VERIFY_FILE_SIGNATURE exit(0xe0000242)} 13:21:28.744
+!    sig:           Driver package signer is unknown, but user trusts signer.
+     sig:           Driver package certificate was successfully installed.
+     sto:      {DRIVERSTORE IMPORT VALIDATE: exit(0x00000000)} 13:21:31.889
+     sig:      Signer Score  = 0x0F000000 (Authenticode)
+     sig:      Signer Name   = Adafruit Industries
+     sto:      {Core Driver Package Import: adafruitcircuitplayground.inf_amd64_2d02d0acf109024b} 13:21:31.895
+     sto:           {DRIVERSTORE IMPORT BEGIN} 13:21:31.896
+     sto:           {DRIVERSTORE IMPORT BEGIN: exit(0x00000000)} 13:21:31.897
+     cpy:           {Copy Directory: C:\Windows\System32\DriverStore\Temp\{c7772cf6-ab81-b44c-9acb-451fa94ff40b}} 13:21:31.898
+     cpy:                Target Path = C:\Windows\System32\DriverStore\FileRepository\adafruitcircuitplayground.inf_amd64_2d02d0acf109024b
+     cpy:           {Copy Directory: exit(0x00000000)} 13:21:31.902
+     idb:           {Register Driver Package: C:\Windows\System32\DriverStore\FileRepository\adafruitcircuitplayground.inf_amd64_2d02d0acf109024b\adafruitcircuitplayground.inf} 13:21:31.910
+     idb:                Created driver package object 'adafruitcircuitplayground.inf_amd64_2d02d0acf109024b' in SYSTEM database node.
+     idb:                Created driver INF file object 'oem44.inf' in SYSTEM database node.
+     idb:                Registered driver package 'adafruitcircuitplayground.inf_amd64_2d02d0acf109024b' with 'oem44.inf'.
+     idb:           {Register Driver Package: exit(0x00000000)} 13:21:31.918
+     idb:           {Publish Driver Package: C:\Windows\System32\DriverStore\FileRepository\adafruitcircuitplayground.inf_amd64_2d02d0acf109024b\adafruitcircuitplayground.inf} 13:21:31.918
+     idb:                Activating driver package 'adafruitcircuitplayground.inf_amd64_2d02d0acf109024b'.
+     cpy:                Published 'adafruitcircuitplayground.inf_amd64_2d02d0acf109024b\adafruitcircuitplayground.inf' to 'oem44.inf'.
+     idb:                Indexed 3 device IDs for 'adafruitcircuitplayground.inf_amd64_2d02d0acf109024b'.
+     sto:                Flushed driver database node 'SYSTEM'. Time = 16 ms
+     idb:           {Publish Driver Package: exit(0x00000000)} 13:21:31.934
+     sto:           {DRIVERSTORE IMPORT END} 13:21:31.936
+     dvi:                Flushed all driver package files to disk. Time = 3 ms
+     sig:                Installed catalog 'AdafruitCircuitPlayground.cat' as 'oem44.cat'.
+     sto:           {DRIVERSTORE IMPORT END: exit(0x00000000)} 13:21:31.964
+     sto:           CopyINF driver package 'adafruitcircuitplayground.inf' is already imported as 'oem44.inf' (C:\Windows\System32\DriverStore\FileRepository\adafruitcircuitplayground.inf_amd64_2d02d0acf109024b\adafruitcircuitplayground.inf)
+     sto:      {Core Driver Package Import: exit(0x00000000)} 13:21:31.989
+     sto: {Stage Driver Package: exit(0x00000000)} 13:21:31.992
+<<<  Section end 2026/11/19 13:21:32.155
+<<<  [Exit status: SUCCESS]
+
+
+>>>  [SetupCopyOEMInf - C:\Windows\System32\DriverStore\FileRepository\adafruitcircuitplayground.inf_amd64_2d02d0acf109024b\adafruitcircuitplayground.inf]
+>>>  Section start 2026/11/19 13:21:32.156
+      cmd: "C:\Users\kaush\OneDrive\Documents\ArduinoData\packages\arduino\hardware\avr\1.8.8\drivers\dpinst-amd64.exe"  /LM /SW /SA
+     inf: Copy style: 0x00040000
+     inf: Driver Store Path: C:\Windows\System32\DriverStore\FileRepository\adafruitcircuitplayground.inf_amd64_2d02d0acf109024b\adafruitcircuitplayground.inf
+     inf: Published Inf Path: C:\Windows\INF\oem44.inf
+     sig: Installing catalog AdafruitCircuitPlayground.cat as: oem44.CAT
+<<<  Section end 2026/11/19 13:21:32.169
+<<<  [Exit status: SUCCESS]
+
+
+>>>  [Setup Import Driver Package - c:\users\kaush\onedrive\documents\arduinodata\packages\arduino\hardware\avr\1.8.8\drivers\arduino-org.inf]
+>>>  Section start 2026/11/19 13:21:32.172
+      cmd: "C:\Users\kaush\OneDrive\Documents\ArduinoData\packages\arduino\hardware\avr\1.8.8\drivers\dpinst-amd64.exe"  /LM /SW /SA
+     inf: Provider: Arduino Srl (www.arduino.org)
+     inf: Class GUID: {4D36E978-E325-11CE-BFC1-08002BE10318}
+     inf: Driver Version: 03/19/2015,1.1.1.0
+     inf: Catalog File: arduino-org.cat
+     sto: {Copy Driver Package: c:\users\kaush\onedrive\documents\arduinodata\packages\arduino\hardware\avr\1.8.8\drivers\arduino-org.inf} 13:21:32.176
+     sto:      Driver Package = c:\users\kaush\onedrive\documents\arduinodata\packages\arduino\hardware\avr\1.8.8\drivers\arduino-org.inf
+     sto:      Flags          = 0x00000007
+     sto:      Destination    = C:\Users\kaush\AppData\Local\Temp\{45023376-f68b-f641-95cb-e4573c1c9df7}
+     sto:      Copying driver package files to 'C:\Users\kaush\AppData\Local\Temp\{45023376-f68b-f641-95cb-e4573c1c9df7}'.
+     flq:      {FILE_QUEUE_COMMIT} 13:21:32.196
+     flq:           Copying 'c:\users\kaush\onedrive\documents\arduinodata\packages\arduino\hardware\avr\1.8.8\drivers\arduino-org.cat' to 'C:\Users\kaush\AppData\Local\Temp\{45023376-f68b-f641-95cb-e4573c1c9df7}\arduino-org.cat'.
+     flq:           Copying 'c:\users\kaush\onedrive\documents\arduinodata\packages\arduino\hardware\avr\1.8.8\drivers\arduino-org.inf' to 'C:\Users\kaush\AppData\Local\Temp\{45023376-f68b-f641-95cb-e4573c1c9df7}\arduino-org.inf'.
+     flq:      {FILE_QUEUE_COMMIT - exit(0x00000000)} 13:21:32.203
+     sto: {Copy Driver Package: exit(0x00000000)} 13:21:32.203
+     ump: Import flags: 0x00000000
+     pol: {Driver package policy check} 13:21:32.219
+     pol: {Driver package policy check - exit(0x00000000)} 13:21:32.219
+     sto: {Stage Driver Package: C:\Users\kaush\AppData\Local\Temp\{45023376-f68b-f641-95cb-e4573c1c9df7}\arduino-org.inf} 13:21:32.220
+     inf:      Provider       = Arduino Srl (www.arduino.org)
+     inf:      Class GUID     = {4d36e978-e325-11ce-bfc1-08002be10318}
+     inf:      Driver Version = 03/19/2015,1.1.1.0
+     inf:      Catalog File   = arduino-org.cat
+     inf:      Version Flags  = 0x00000001
+     inf:      {Query Configurability: C:\Users\kaush\AppData\Local\Temp\{45023376-f68b-f641-95cb-e4573c1c9df7}\arduino-org.inf} 13:21:32.239
+     inf:           Driver package 'arduino-org.inf' is configurable.
+     inf:      {Query Configurability: exit(0x00000000)} 13:21:32.249
+     flq:      {FILE_QUEUE_COMMIT} 13:21:32.251
+     flq:           Copying 'C:\Users\kaush\AppData\Local\Temp\{45023376-f68b-f641-95cb-e4573c1c9df7}\arduino-org.cat' to 'C:\Windows\System32\DriverStore\Temp\{5d817213-32c1-8740-a31e-ee151e94958e}\arduino-org.cat'.
+     flq:           Copying 'C:\Users\kaush\AppData\Local\Temp\{45023376-f68b-f641-95cb-e4573c1c9df7}\arduino-org.inf' to 'C:\Windows\System32\DriverStore\Temp\{5d817213-32c1-8740-a31e-ee151e94958e}\arduino-org.inf'.
+     flq:      {FILE_QUEUE_COMMIT - exit(0x00000000)} 13:21:32.260
+     sto:      {DRIVERSTORE IMPORT VALIDATE} 13:21:32.262
+     sig:           Driver package catalog is valid.
+     sig:           {_VERIFY_FILE_SIGNATURE} 13:21:32.271
+     sig:                Key      = arduino-org.inf
+     sig:                FilePath = C:\Windows\System32\DriverStore\Temp\{5d817213-32c1-8740-a31e-ee151e94958e}\arduino-org.inf
+     sig:                Catalog  = C:\Windows\System32\DriverStore\Temp\{5d817213-32c1-8740-a31e-ee151e94958e}\arduino-org.cat
+!    sig:                Verifying file against specific (valid) catalog failed.
+!    sig:                Error 0x800b0109: A certificate chain processed, but terminated in a root certificate which is not trusted by the trust provider.
+     sig:           {_VERIFY_FILE_SIGNATURE exit(0x800b0109)} 13:21:32.322
+     sig:           {_VERIFY_FILE_SIGNATURE} 13:21:32.324
+     sig:                Key      = arduino-org.inf
+     sig:                FilePath = C:\Windows\System32\DriverStore\Temp\{5d817213-32c1-8740-a31e-ee151e94958e}\arduino-org.inf
+     sig:                Catalog  = C:\Windows\System32\DriverStore\Temp\{5d817213-32c1-8740-a31e-ee151e94958e}\arduino-org.cat
+     sig:                Success: File is signed in Authenticode(tm) catalog.
+     sig:                Error 0xe0000242: The publisher of an Authenticode(tm) signed catalog has not yet been established as trusted.
+     sig:           {_VERIFY_FILE_SIGNATURE exit(0xe0000242)} 13:21:32.352
+!    sig:           Driver package signer is unknown, but user trusts signer.
+     sig:           Driver package certificate was successfully installed.
+     sto:      {DRIVERSTORE IMPORT VALIDATE: exit(0x00000000)} 13:21:33.832
+     sig:      Signer Score  = 0x0F000000 (Authenticode)
+     sig:      Signer Name   = Arduino srl
+     sto:      {Core Driver Package Import: arduino-org.inf_amd64_bb8d72653e2c9162} 13:21:33.835
+     sto:           {DRIVERSTORE IMPORT BEGIN} 13:21:33.835
+     sto:           {DRIVERSTORE IMPORT BEGIN: exit(0x00000000)} 13:21:33.835
+     cpy:           {Copy Directory: C:\Windows\System32\DriverStore\Temp\{5d817213-32c1-8740-a31e-ee151e94958e}} 13:21:33.836
+     cpy:                Target Path = C:\Windows\System32\DriverStore\FileRepository\arduino-org.inf_amd64_bb8d72653e2c9162
+     cpy:           {Copy Directory: exit(0x00000000)} 13:21:33.838
+     idb:           {Register Driver Package: C:\Windows\System32\DriverStore\FileRepository\arduino-org.inf_amd64_bb8d72653e2c9162\arduino-org.inf} 13:21:33.843
+     idb:                Created driver package object 'arduino-org.inf_amd64_bb8d72653e2c9162' in SYSTEM database node.
+     idb:                Created driver INF file object 'oem49.inf' in SYSTEM database node.
+     idb:                Registered driver package 'arduino-org.inf_amd64_bb8d72653e2c9162' with 'oem49.inf'.
+     idb:           {Register Driver Package: exit(0x00000000)} 13:21:33.850
+     idb:           {Publish Driver Package: C:\Windows\System32\DriverStore\FileRepository\arduino-org.inf_amd64_bb8d72653e2c9162\arduino-org.inf} 13:21:33.850
+     idb:                Activating driver package 'arduino-org.inf_amd64_bb8d72653e2c9162'.
+     cpy:                Published 'arduino-org.inf_amd64_bb8d72653e2c9162\arduino-org.inf' to 'oem49.inf'.
+!    idb:                Driver INF match for 'oem49.inf' already exists under 'USB\VID_03EB&PID_2111&MI_01'.
+     idb:                Indexed 41 device IDs for 'arduino-org.inf_amd64_bb8d72653e2c9162'.
+     sto:                Flushed driver database node 'SYSTEM'. Time = 0 ms
+     idb:           {Publish Driver Package: exit(0x00000000)} 13:21:33.865
+     sto:           {DRIVERSTORE IMPORT END} 13:21:33.867
+     dvi:                Flushed all driver package files to disk. Time = 1 ms
+     sig:                Installed catalog 'arduino-org.cat' as 'oem49.cat'.
+     sto:           {DRIVERSTORE IMPORT END: exit(0x00000000)} 13:21:33.875
+     sto:           CopyINF driver package 'arduino-org.inf' is already imported as 'oem49.inf' (C:\Windows\System32\DriverStore\FileRepository\arduino-org.inf_amd64_bb8d72653e2c9162\arduino-org.inf)
+     sto:      {Core Driver Package Import: exit(0x00000000)} 13:21:33.889
+     sto: {Stage Driver Package: exit(0x00000000)} 13:21:33.890
+<<<  Section end 2026/11/19 13:21:33.944
+<<<  [Exit status: SUCCESS]
+
+
+>>>  [SetupCopyOEMInf - C:\Windows\System32\DriverStore\FileRepository\arduino-org.inf_amd64_bb8d72653e2c9162\arduino-org.inf]
+>>>  Section start 2026/11/19 13:21:33.945
+      cmd: "C:\Users\kaush\OneDrive\Documents\ArduinoData\packages\arduino\hardware\avr\1.8.8\drivers\dpinst-amd64.exe"  /LM /SW /SA
+     inf: Copy style: 0x00040000
+     inf: Driver Store Path: C:\Windows\System32\DriverStore\FileRepository\arduino-org.inf_amd64_bb8d72653e2c9162\arduino-org.inf
+     inf: Published Inf Path: C:\Windows\INF\oem49.inf
+     sig: Installing catalog arduino-org.cat as: oem49.CAT
+<<<  Section end 2026/11/19 13:21:33.953
+<<<  [Exit status: SUCCESS]
+
+
+>>>  [Setup Import Driver Package - c:\users\kaush\onedrive\documents\arduinodata\packages\arduino\hardware\avr\1.8.8\drivers\arduino.inf]
+>>>  Section start 2026/11/19 13:21:33.958
+      cmd: "C:\Users\kaush\OneDrive\Documents\ArduinoData\packages\arduino\hardware\avr\1.8.8\drivers\dpinst-amd64.exe"  /LM /SW /SA
+     inf: Provider: Arduino LLC (www.arduino.cc)
+     inf: Class GUID: {4D36E978-E325-11CE-BFC1-08002BE10318}
+     inf: Driver Version: 11/24/2015,1.2.3.0
+     inf: Catalog File: arduino.cat
+     sto: {Copy Driver Package: c:\users\kaush\onedrive\documents\arduinodata\packages\arduino\hardware\avr\1.8.8\drivers\arduino.inf} 13:21:33.963
+     sto:      Driver Package = c:\users\kaush\onedrive\documents\arduinodata\packages\arduino\hardware\avr\1.8.8\drivers\arduino.inf
+     sto:      Flags          = 0x00000007
+     sto:      Destination    = C:\Users\kaush\AppData\Local\Temp\{a8750c27-8807-2c4b-bd56-2ce44d8d130e}
+     sto:      Copying driver package files to 'C:\Users\kaush\AppData\Local\Temp\{a8750c27-8807-2c4b-bd56-2ce44d8d130e}'.
+     flq:      {FILE_QUEUE_COMMIT} 13:21:33.986
+     flq:           Copying 'c:\users\kaush\onedrive\documents\arduinodata\packages\arduino\hardware\avr\1.8.8\drivers\arduino.cat' to 'C:\Users\kaush\AppData\Local\Temp\{a8750c27-8807-2c4b-bd56-2ce44d8d130e}\arduino.cat'.
+     flq:           Copying 'c:\users\kaush\onedrive\documents\arduinodata\packages\arduino\hardware\avr\1.8.8\drivers\arduino.inf' to 'C:\Users\kaush\AppData\Local\Temp\{a8750c27-8807-2c4b-bd56-2ce44d8d130e}\arduino.inf'.
+     flq:      {FILE_QUEUE_COMMIT - exit(0x00000000)} 13:21:33.992
+     sto: {Copy Driver Package: exit(0x00000000)} 13:21:33.993
+     ump: Import flags: 0x00000000
+     pol: {Driver package policy check} 13:21:34.009
+     pol: {Driver package policy check - exit(0x00000000)} 13:21:34.009
+     sto: {Stage Driver Package: C:\Users\kaush\AppData\Local\Temp\{a8750c27-8807-2c4b-bd56-2ce44d8d130e}\arduino.inf} 13:21:34.010
+     inf:      Provider       = Arduino LLC (www.arduino.cc)
+     inf:      Class GUID     = {4d36e978-e325-11ce-bfc1-08002be10318}
+     inf:      Driver Version = 11/24/2015,1.2.3.0
+     inf:      Catalog File   = arduino.cat
+     inf:      Version Flags  = 0x00000001
+     inf:      {Query Configurability: C:\Users\kaush\AppData\Local\Temp\{a8750c27-8807-2c4b-bd56-2ce44d8d130e}\arduino.inf} 13:21:34.032
+     inf:           Driver package 'arduino.inf' is configurable.
+     inf:      {Query Configurability: exit(0x00000000)} 13:21:34.042
+     flq:      {FILE_QUEUE_COMMIT} 13:21:34.043
+     flq:           Copying 'C:\Users\kaush\AppData\Local\Temp\{a8750c27-8807-2c4b-bd56-2ce44d8d130e}\arduino.cat' to 'C:\Windows\System32\DriverStore\Temp\{45d28a73-495c-7f4e-a7ff-234c309d6527}\arduino.cat'.
+     flq:           Copying 'C:\Users\kaush\AppData\Local\Temp\{a8750c27-8807-2c4b-bd56-2ce44d8d130e}\arduino.inf' to 'C:\Windows\System32\DriverStore\Temp\{45d28a73-495c-7f4e-a7ff-234c309d6527}\arduino.inf'.
+     flq:      {FILE_QUEUE_COMMIT - exit(0x00000000)} 13:21:34.053
+     sto:      {DRIVERSTORE IMPORT VALIDATE} 13:21:34.054
+     sig:           Driver package catalog is valid.
+     sig:           {_VERIFY_FILE_SIGNATURE} 13:21:34.067
+     sig:                Key      = arduino.inf
+     sig:                FilePath = C:\Windows\System32\DriverStore\Temp\{45d28a73-495c-7f4e-a7ff-234c309d6527}\arduino.inf
+     sig:                Catalog  = C:\Windows\System32\DriverStore\Temp\{45d28a73-495c-7f4e-a7ff-234c309d6527}\arduino.cat
+!    sig:                Verifying file against specific (valid) catalog failed.
+!    sig:                Error 0x800b0109: A certificate chain processed, but terminated in a root certificate which is not trusted by the trust provider.
+     sig:           {_VERIFY_FILE_SIGNATURE exit(0x800b0109)} 13:21:34.100
+     sig:           {_VERIFY_FILE_SIGNATURE} 13:21:34.102
+     sig:                Key      = arduino.inf
+     sig:                FilePath = C:\Windows\System32\DriverStore\Temp\{45d28a73-495c-7f4e-a7ff-234c309d6527}\arduino.inf
+     sig:                Catalog  = C:\Windows\System32\DriverStore\Temp\{45d28a73-495c-7f4e-a7ff-234c309d6527}\arduino.cat
+     sig:                Success: File is signed in Authenticode(tm) catalog.
+     sig:                Error 0xe0000241: The INF was signed with an Authenticode(tm) catalog from a trusted publisher.
+     sig:           {_VERIFY_FILE_SIGNATURE exit(0xe0000241)} 13:21:34.128
+     sto:      {DRIVERSTORE IMPORT VALIDATE: exit(0x00000000)} 13:21:34.129
+     sig:      Signer Score  = 0x0F000000 (Authenticode)
+     sig:      Signer Name   = Arduino SA
+     sto:      {Core Driver Package Import: arduino.inf_amd64_f9ccd9c82d0e09d1} 13:21:34.131
+     sto:           {DRIVERSTORE IMPORT BEGIN} 13:21:34.131
+     sto:           {DRIVERSTORE IMPORT BEGIN: exit(0x00000000)} 13:21:34.131
+     cpy:           {Copy Directory: C:\Windows\System32\DriverStore\Temp\{45d28a73-495c-7f4e-a7ff-234c309d6527}} 13:21:34.131
+     cpy:                Target Path = C:\Windows\System32\DriverStore\FileRepository\arduino.inf_amd64_f9ccd9c82d0e09d1
+     cpy:           {Copy Directory: exit(0x00000000)} 13:21:34.133
+     idb:           {Register Driver Package: C:\Windows\System32\DriverStore\FileRepository\arduino.inf_amd64_f9ccd9c82d0e09d1\arduino.inf} 13:21:34.137
+     idb:                Created driver package object 'arduino.inf_amd64_f9ccd9c82d0e09d1' in SYSTEM database node.
+     idb:                Created driver INF file object 'oem104.inf' in SYSTEM database node.
+     idb:                Registered driver package 'arduino.inf_amd64_f9ccd9c82d0e09d1' with 'oem104.inf'.
+     idb:           {Register Driver Package: exit(0x00000000)} 13:21:34.139
+     idb:           {Publish Driver Package: C:\Windows\System32\DriverStore\FileRepository\arduino.inf_amd64_f9ccd9c82d0e09d1\arduino.inf} 13:21:34.140
+     idb:                Activating driver package 'arduino.inf_amd64_f9ccd9c82d0e09d1'.
+     cpy:                Published 'arduino.inf_amd64_f9ccd9c82d0e09d1\arduino.inf' to 'oem104.inf'.
+     idb:                Indexed 34 device IDs for 'arduino.inf_amd64_f9ccd9c82d0e09d1'.
+     sto:                Flushed driver database node 'SYSTEM'. Time = 15 ms
+     idb:           {Publish Driver Package: exit(0x00000000)} 13:21:34.150
+     sto:           {DRIVERSTORE IMPORT END} 13:21:34.151
+     dvi:                Flushed all driver package files to disk. Time = 1 ms
+     sig:                Installed catalog 'arduino.cat' as 'oem104.cat'.
+     sto:           {DRIVERSTORE IMPORT END: exit(0x00000000)} 13:21:34.161
+     sto:           CopyINF driver package 'arduino.inf' is already imported as 'oem104.inf' (C:\Windows\System32\DriverStore\FileRepository\arduino.inf_amd64_f9ccd9c82d0e09d1\arduino.inf)
+     sto:      {Core Driver Package Import: exit(0x00000000)} 13:21:34.169
+     sto: {Stage Driver Package: exit(0x00000000)} 13:21:34.170
+<<<  Section end 2026/11/19 13:21:34.211
+<<<  [Exit status: SUCCESS]
+
+
+>>>  [SetupCopyOEMInf - C:\Windows\System32\DriverStore\FileRepository\arduino.inf_amd64_f9ccd9c82d0e09d1\arduino.inf]
+>>>  Section start 2026/11/19 13:21:34.211
+      cmd: "C:\Users\kaush\OneDrive\Documents\ArduinoData\packages\arduino\hardware\avr\1.8.8\drivers\dpinst-amd64.exe"  /LM /SW /SA
+     inf: Copy style: 0x00040000
+     inf: Driver Store Path: C:\Windows\System32\DriverStore\FileRepository\arduino.inf_amd64_f9ccd9c82d0e09d1\arduino.inf
+     inf: Published Inf Path: C:\Windows\INF\oem104.inf
+     sig: Installing catalog arduino.cat as: oem104.CAT
+<<<  Section end 2026/11/19 13:21:34.221
+<<<  [Exit status: SUCCESS]
+
+
+>>>  [Setup Import Driver Package - c:\users\kaush\onedrive\documents\arduinodata\packages\arduino\hardware\avr\1.8.8\drivers\genuino.inf]
+>>>  Section start 2026/11/19 13:21:34.226
+      cmd: "C:\Users\kaush\OneDrive\Documents\ArduinoData\packages\arduino\hardware\avr\1.8.8\drivers\dpinst-amd64.exe"  /LM /SW /SA
+     inf: Provider: Arduino LLC (www.arduino.cc)
+     inf: Class GUID: {4D36E978-E325-11CE-BFC1-08002BE10318}
+     inf: Driver Version: 01/07/2016,1.0.3.0
+     inf: Catalog File: genuino.cat
+     sto: {Copy Driver Package: c:\users\kaush\onedrive\documents\arduinodata\packages\arduino\hardware\avr\1.8.8\drivers\genuino.inf} 13:21:34.229
+     sto:      Driver Package = c:\users\kaush\onedrive\documents\arduinodata\packages\arduino\hardware\avr\1.8.8\drivers\genuino.inf
+     sto:      Flags          = 0x00000007
+     sto:      Destination    = C:\Users\kaush\AppData\Local\Temp\{a1957034-0b96-5443-ba4c-2c810c2e6de9}
+     sto:      Copying driver package files to 'C:\Users\kaush\AppData\Local\Temp\{a1957034-0b96-5443-ba4c-2c810c2e6de9}'.
+     flq:      {FILE_QUEUE_COMMIT} 13:21:34.247
+     flq:           Copying 'c:\users\kaush\onedrive\documents\arduinodata\packages\arduino\hardware\avr\1.8.8\drivers\genuino.cat' to 'C:\Users\kaush\AppData\Local\Temp\{a1957034-0b96-5443-ba4c-2c810c2e6de9}\genuino.cat'.
+     flq:           Copying 'c:\users\kaush\onedrive\documents\arduinodata\packages\arduino\hardware\avr\1.8.8\drivers\genuino.inf' to 'C:\Users\kaush\AppData\Local\Temp\{a1957034-0b96-5443-ba4c-2c810c2e6de9}\genuino.inf'.
+     flq:      {FILE_QUEUE_COMMIT - exit(0x00000000)} 13:21:34.254
+     sto: {Copy Driver Package: exit(0x00000000)} 13:21:34.254
+     ump: Import flags: 0x00000000
+     pol: {Driver package policy check} 13:21:34.271
+     pol: {Driver package policy check - exit(0x00000000)} 13:21:34.271
+     sto: {Stage Driver Package: C:\Users\kaush\AppData\Local\Temp\{a1957034-0b96-5443-ba4c-2c810c2e6de9}\genuino.inf} 13:21:34.272
+     inf:      Provider       = Arduino LLC (www.arduino.cc)
+     inf:      Class GUID     = {4d36e978-e325-11ce-bfc1-08002be10318}
+     inf:      Driver Version = 01/07/2016,1.0.3.0
+     inf:      Catalog File   = genuino.cat
+     inf:      Version Flags  = 0x00000001
+     inf:      {Query Configurability: C:\Users\kaush\AppData\Local\Temp\{a1957034-0b96-5443-ba4c-2c810c2e6de9}\genuino.inf} 13:21:34.291
+     inf:           Driver package 'genuino.inf' is configurable.
+     inf:      {Query Configurability: exit(0x00000000)} 13:21:34.299
+     flq:      {FILE_QUEUE_COMMIT} 13:21:34.301
+     flq:           Copying 'C:\Users\kaush\AppData\Local\Temp\{a1957034-0b96-5443-ba4c-2c810c2e6de9}\genuino.cat' to 'C:\Windows\System32\DriverStore\Temp\{1df77ee3-918a-d64e-bf55-e21b368a8531}\genuino.cat'.
+     flq:           Copying 'C:\Users\kaush\AppData\Local\Temp\{a1957034-0b96-5443-ba4c-2c810c2e6de9}\genuino.inf' to 'C:\Windows\System32\DriverStore\Temp\{1df77ee3-918a-d64e-bf55-e21b368a8531}\genuino.inf'.
+     flq:      {FILE_QUEUE_COMMIT - exit(0x00000000)} 13:21:34.309
+     sto:      {DRIVERSTORE IMPORT VALIDATE} 13:21:34.310
+     sig:           Driver package catalog is valid.
+     sig:           {_VERIFY_FILE_SIGNATURE} 13:21:34.319
+     sig:                Key      = genuino.inf
+     sig:                FilePath = C:\Windows\System32\DriverStore\Temp\{1df77ee3-918a-d64e-bf55-e21b368a8531}\genuino.inf
+     sig:                Catalog  = C:\Windows\System32\DriverStore\Temp\{1df77ee3-918a-d64e-bf55-e21b368a8531}\genuino.cat
+!    sig:                Verifying file against specific (valid) catalog failed.
+!    sig:                Error 0x800b0109: A certificate chain processed, but terminated in a root certificate which is not trusted by the trust provider.
+     sig:           {_VERIFY_FILE_SIGNATURE exit(0x800b0109)} 13:21:34.343
+     sig:           {_VERIFY_FILE_SIGNATURE} 13:21:34.345
+     sig:                Key      = genuino.inf
+     sig:                FilePath = C:\Windows\System32\DriverStore\Temp\{1df77ee3-918a-d64e-bf55-e21b368a8531}\genuino.inf
+     sig:                Catalog  = C:\Windows\System32\DriverStore\Temp\{1df77ee3-918a-d64e-bf55-e21b368a8531}\genuino.cat
+     sig:                Success: File is signed in Authenticode(tm) catalog.
+     sig:                Error 0xe0000242: The publisher of an Authenticode(tm) signed catalog has not yet been established as trusted.
+     sig:           {_VERIFY_FILE_SIGNATURE exit(0xe0000242)} 13:21:34.363
+!    sig:           Driver package signer is unknown, but user trusts signer.
+     sig:           Driver package certificate was successfully installed.
+     sto:      {DRIVERSTORE IMPORT VALIDATE: exit(0x00000000)} 13:21:37.110
+     sig:      Signer Score  = 0x0F000000 (Authenticode)
+     sig:      Signer Name   = Arduino LLC
+     sto:      {Core Driver Package Import: genuino.inf_amd64_7ce493bc08c7f4df} 13:21:37.112
+     sto:           {DRIVERSTORE IMPORT BEGIN} 13:21:37.112
+     sto:           {DRIVERSTORE IMPORT BEGIN: exit(0x00000000)} 13:21:37.112
+     cpy:           {Copy Directory: C:\Windows\System32\DriverStore\Temp\{1df77ee3-918a-d64e-bf55-e21b368a8531}} 13:21:37.112
+     cpy:                Target Path = C:\Windows\System32\DriverStore\FileRepository\genuino.inf_amd64_7ce493bc08c7f4df
+     cpy:           {Copy Directory: exit(0x00000000)} 13:21:37.113
+     idb:           {Register Driver Package: C:\Windows\System32\DriverStore\FileRepository\genuino.inf_amd64_7ce493bc08c7f4df\genuino.inf} 13:21:37.117
+     idb:                Created driver package object 'genuino.inf_amd64_7ce493bc08c7f4df' in SYSTEM database node.
+     idb:                Created driver INF file object 'oem120.inf' in SYSTEM database node.
+     idb:                Registered driver package 'genuino.inf_amd64_7ce493bc08c7f4df' with 'oem120.inf'.
+     idb:           {Register Driver Package: exit(0x00000000)} 13:21:37.119
+     idb:           {Publish Driver Package: C:\Windows\System32\DriverStore\FileRepository\genuino.inf_amd64_7ce493bc08c7f4df\genuino.inf} 13:21:37.120
+     idb:                Activating driver package 'genuino.inf_amd64_7ce493bc08c7f4df'.
+     cpy:                Published 'genuino.inf_amd64_7ce493bc08c7f4df\genuino.inf' to 'oem120.inf'.
+     idb:                Indexed 9 device IDs for 'genuino.inf_amd64_7ce493bc08c7f4df'.
+     sto:                Flushed driver database node 'SYSTEM'. Time = 0 ms
+     idb:           {Publish Driver Package: exit(0x00000000)} 13:21:37.127
+     sto:           {DRIVERSTORE IMPORT END} 13:21:37.128
+     dvi:                Flushed all driver package files to disk. Time = 2 ms
+     sig:                Installed catalog 'genuino.cat' as 'oem120.cat'.
+     sto:           {DRIVERSTORE IMPORT END: exit(0x00000000)} 13:21:37.135
+     sto:           CopyINF driver package 'genuino.inf' is already imported as 'oem120.inf' (C:\Windows\System32\DriverStore\FileRepository\genuino.inf_amd64_7ce493bc08c7f4df\genuino.inf)
+     sto:      {Core Driver Package Import: exit(0x00000000)} 13:21:37.146
+     sto: {Stage Driver Package: exit(0x00000000)} 13:21:37.147
+<<<  Section end 2026/11/19 13:21:37.186
+<<<  [Exit status: SUCCESS]
+
+
+>>>  [SetupCopyOEMInf - C:\Windows\System32\DriverStore\FileRepository\genuino.inf_amd64_7ce493bc08c7f4df\genuino.inf]
+>>>  Section start 2026/11/19 13:21:37.187
+      cmd: "C:\Users\kaush\OneDrive\Documents\ArduinoData\packages\arduino\hardware\avr\1.8.8\drivers\dpinst-amd64.exe"  /LM /SW /SA
+     inf: Copy style: 0x00040000
+     inf: Driver Store Path: C:\Windows\System32\DriverStore\FileRepository\genuino.inf_amd64_7ce493bc08c7f4df\genuino.inf
+     inf: Published Inf Path: C:\Windows\INF\oem120.inf
+     sig: Installing catalog genuino.cat as: oem120.CAT
+<<<  Section end 2026/11/19 13:21:37.198
+<<<  [Exit status: SUCCESS]
+
+
+>>>  [Setup Import Driver Package - c:\users\kaush\onedrive\documents\arduinodata\packages\arduino\hardware\avr\1.8.8\drivers\linino.inf]
+>>>  Section start 2026/11/19 13:21:37.200
+      cmd: "C:\Users\kaush\OneDrive\Documents\ArduinoData\packages\arduino\hardware\avr\1.8.8\drivers\dpinst-amd64.exe"  /LM /SW /SA
+     inf: Provider: Linino
+     inf: Class GUID: {4D36E978-E325-11CE-BFC1-08002BE10318}
+     inf: Driver Version: 01/13/2014,1.0.0.0
+     inf: Catalog File: Linino-Boards_amd64.cat
+     sto: {Copy Driver Package: c:\users\kaush\onedrive\documents\arduinodata\packages\arduino\hardware\avr\1.8.8\drivers\linino.inf} 13:21:37.202
+     sto:      Driver Package = c:\users\kaush\onedrive\documents\arduinodata\packages\arduino\hardware\avr\1.8.8\drivers\linino.inf
+     sto:      Flags          = 0x00000007
+     sto:      Destination    = C:\Users\kaush\AppData\Local\Temp\{8463f5a1-a5e1-db4d-8a85-790fe4aca9e2}
+     sto:      Copying driver package files to 'C:\Users\kaush\AppData\Local\Temp\{8463f5a1-a5e1-db4d-8a85-790fe4aca9e2}'.
+     flq:      {FILE_QUEUE_COMMIT} 13:21:37.211
+     flq:           Copying 'c:\users\kaush\onedrive\documents\arduinodata\packages\arduino\hardware\avr\1.8.8\drivers\Linino-Boards_amd64.cat' to 'C:\Users\kaush\AppData\Local\Temp\{8463f5a1-a5e1-db4d-8a85-790fe4aca9e2}\Linino-Boards_amd64.cat'.
+     flq:           Copying 'c:\users\kaush\onedrive\documents\arduinodata\packages\arduino\hardware\avr\1.8.8\drivers\linino.inf' to 'C:\Users\kaush\AppData\Local\Temp\{8463f5a1-a5e1-db4d-8a85-790fe4aca9e2}\linino.inf'.
+     flq:      {FILE_QUEUE_COMMIT - exit(0x00000000)} 13:21:37.216
+     sto: {Copy Driver Package: exit(0x00000000)} 13:21:37.217
+     ump: Import flags: 0x00000000
+     pol: {Driver package policy check} 13:21:37.232
+     pol: {Driver package policy check - exit(0x00000000)} 13:21:37.233
+     sto: {Stage Driver Package: C:\Users\kaush\AppData\Local\Temp\{8463f5a1-a5e1-db4d-8a85-790fe4aca9e2}\linino.inf} 13:21:37.233
+     inf:      Provider       = Linino
+     inf:      Class GUID     = {4d36e978-e325-11ce-bfc1-08002be10318}
+     inf:      Driver Version = 01/13/2014,1.0.0.0
+     inf:      Catalog File   = Linino-Boards_amd64.cat
+     inf:      Version Flags  = 0x00000001
+     inf:      {Query Configurability: C:\Users\kaush\AppData\Local\Temp\{8463f5a1-a5e1-db4d-8a85-790fe4aca9e2}\linino.inf} 13:21:37.245
+     inf:           Driver package 'linino.inf' is configurable.
+     inf:      {Query Configurability: exit(0x00000000)} 13:21:37.250
+     flq:      {FILE_QUEUE_COMMIT} 13:21:37.251
+     flq:           Copying 'C:\Users\kaush\AppData\Local\Temp\{8463f5a1-a5e1-db4d-8a85-790fe4aca9e2}\Linino-Boards_amd64.cat' to 'C:\Windows\System32\DriverStore\Temp\{15fff5b0-56ad-1d47-b2cd-15b963a1244c}\Linino-Boards_amd64.cat'.
+     flq:           Copying 'C:\Users\kaush\AppData\Local\Temp\{8463f5a1-a5e1-db4d-8a85-790fe4aca9e2}\linino.inf' to 'C:\Windows\System32\DriverStore\Temp\{15fff5b0-56ad-1d47-b2cd-15b963a1244c}\linino.inf'.
+     flq:      {FILE_QUEUE_COMMIT - exit(0x00000000)} 13:21:37.262
+     sto:      {DRIVERSTORE IMPORT VALIDATE} 13:21:37.263
+     sig:           Driver package catalog is valid.
+     sig:           {_VERIFY_FILE_SIGNATURE} 13:21:37.272
+     sig:                Key      = linino.inf
+     sig:                FilePath = C:\Windows\System32\DriverStore\Temp\{15fff5b0-56ad-1d47-b2cd-15b963a1244c}\linino.inf
+     sig:                Catalog  = C:\Windows\System32\DriverStore\Temp\{15fff5b0-56ad-1d47-b2cd-15b963a1244c}\Linino-Boards_amd64.cat
+!    sig:                Verifying file against specific (valid) catalog failed.
+!    sig:                Error 0x800b0109: A certificate chain processed, but terminated in a root certificate which is not trusted by the trust provider.
+     sig:           {_VERIFY_FILE_SIGNATURE exit(0x800b0109)} 13:21:37.301
+     sig:           {_VERIFY_FILE_SIGNATURE} 13:21:37.303
+     sig:                Key      = linino.inf
+     sig:                FilePath = C:\Windows\System32\DriverStore\Temp\{15fff5b0-56ad-1d47-b2cd-15b963a1244c}\linino.inf
+     sig:                Catalog  = C:\Windows\System32\DriverStore\Temp\{15fff5b0-56ad-1d47-b2cd-15b963a1244c}\Linino-Boards_amd64.cat
+     sig:                Success: File is signed in Authenticode(tm) catalog.
+     sig:                Error 0xe0000241: The INF was signed with an Authenticode(tm) catalog from a trusted publisher.
+     sig:           {_VERIFY_FILE_SIGNATURE exit(0xe0000241)} 13:21:37.332
+     sto:      {DRIVERSTORE IMPORT VALIDATE: exit(0x00000000)} 13:21:37.332
+     sig:      Signer Score  = 0x0F000000 (Authenticode)
+     sig:      Signer Name   = Arduino srl
+     sto:      {Core Driver Package Import: linino.inf_amd64_b4d5b17e904a2353} 13:21:37.334
+     sto:           {DRIVERSTORE IMPORT BEGIN} 13:21:37.334
+     sto:           {DRIVERSTORE IMPORT BEGIN: exit(0x00000000)} 13:21:37.334
+     cpy:           {Copy Directory: C:\Windows\System32\DriverStore\Temp\{15fff5b0-56ad-1d47-b2cd-15b963a1244c}} 13:21:37.334
+     cpy:                Target Path = C:\Windows\System32\DriverStore\FileRepository\linino.inf_amd64_b4d5b17e904a2353
+     cpy:           {Copy Directory: exit(0x00000000)} 13:21:37.337
+     idb:           {Register Driver Package: C:\Windows\System32\DriverStore\FileRepository\linino.inf_amd64_b4d5b17e904a2353\linino.inf} 13:21:37.340
+     idb:                Created driver package object 'linino.inf_amd64_b4d5b17e904a2353' in SYSTEM database node.
+     idb:                Created driver INF file object 'oem122.inf' in SYSTEM database node.
+     idb:                Registered driver package 'linino.inf_amd64_b4d5b17e904a2353' with 'oem122.inf'.
+     idb:           {Register Driver Package: exit(0x00000000)} 13:21:37.345
+     idb:           {Publish Driver Package: C:\Windows\System32\DriverStore\FileRepository\linino.inf_amd64_b4d5b17e904a2353\linino.inf} 13:21:37.345
+     idb:                Activating driver package 'linino.inf_amd64_b4d5b17e904a2353'.
+     cpy:                Published 'linino.inf_amd64_b4d5b17e904a2353\linino.inf' to 'oem122.inf'.
+     idb:                Indexed 3 device IDs for 'linino.inf_amd64_b4d5b17e904a2353'.
+     sto:                Flushed driver database node 'SYSTEM'. Time = 0 ms
+     idb:           {Publish Driver Package: exit(0x00000000)} 13:21:37.351
+     sto:           {DRIVERSTORE IMPORT END} 13:21:37.352
+     dvi:                Flushed all driver package files to disk. Time = 1 ms
+     sig:                Installed catalog 'Linino-Boards_amd64.cat' as 'oem122.cat'.
+     sto:           {DRIVERSTORE IMPORT END: exit(0x00000000)} 13:21:37.359
+     sto:      {Core Driver Package Import: exit(0x00000000)} 13:21:37.359
+     sto: {Stage Driver Package: exit(0x00000000)} 13:21:37.361
+<<<  Section end 2026/11/19 13:21:37.401
+<<<  [Exit status: SUCCESS]
+
+
+>>>  [SetupCopyOEMInf - C:\Windows\System32\DriverStore\FileRepository\linino.inf_amd64_b4d5b17e904a2353\linino.inf]
+>>>  Section start 2026/11/19 13:21:37.401
+      cmd: "C:\Users\kaush\OneDrive\Documents\ArduinoData\packages\arduino\hardware\avr\1.8.8\drivers\dpinst-amd64.exe"  /LM /SW /SA
+     inf: Copy style: 0x00040000
+     inf: Driver Store Path: C:\Windows\System32\DriverStore\FileRepository\linino.inf_amd64_b4d5b17e904a2353\linino.inf
+     inf: Published Inf Path: C:\Windows\INF\oem122.inf
+     sig: Installing catalog Linino-Boards_amd64.cat as: oem122.CAT
+<<<  Section end 2026/11/19 13:21:37.413
+<<<  [Exit status: SUCCESS]
+
+
+>>>  [Device Install (UpdateDriverForPlugAndPlayDevices) - USB\VID_2341&PID_0043&REV_0001]
+>>>  Section start 2026/11/19 13:21:37.485
+      cmd: "C:\Users\kaush\OneDrive\Documents\ArduinoData\packages\arduino\hardware\avr\1.8.8\drivers\dpinst-amd64.exe"  /LM /SW /SA
+     ndv: INF path: C:\Windows\System32\DriverStore\FileRepository\arduino.inf_amd64_f9ccd9c82d0e09d1\arduino.inf
+     ndv: Install flags: 0x00000001
+     ndv: {Update Device Driver - USB\VID_2341&PID_0043\558343236333517071E1}
+     ndv:      Search options: 0x00000080
+     ndv:      Searching single INF 'C:\Windows\System32\DriverStore\FileRepository\arduino.inf_amd64_f9ccd9c82d0e09d1\arduino.inf'
+     dvi:      {Build Driver List} 13:21:37.495
+     dvi:           Searching for hardware ID(s):
+     dvi:                usb\vid_2341&pid_0043&rev_0001
+     dvi:                usb\vid_2341&pid_0043
+     dvi:           Searching for compatible ID(s):
+     dvi:                usb\compat_vid_2341&class_02&subclass_02&prot_01
+     dvi:                usb\compat_vid_2341&class_02&subclass_02
+     dvi:                usb\compat_vid_2341&class_02
+     dvi:                usb\class_02&subclass_02&prot_01
+     dvi:                usb\class_02&subclass_02
+     dvi:                usb\class_02
+     dvi:           Created Driver Node:
+     dvi:                HardwareID   - USB\VID_2341&PID_0043
+     dvi:                InfName      - c:\windows\system32\driverstore\filerepository\arduino.inf_amd64_f9ccd9c82d0e09d1\arduino.inf
+     dvi:                DevDesc      - Arduino Uno
+     dvi:                Section      - DriverInstall
+     dvi:                Rank         - 0x00ff0001
+     dvi:                Signer Score - Authenticode
+     dvi:                DrvDate      - 11/24/2015
+     dvi:                Version      - 1.2.3.0
+     dvi:      {Build Driver List - exit(0x00000000)} 13:21:37.503
+     dvi:      {DIF_SELECTBESTCOMPATDRV} 13:21:37.503
+     dvi:           Using exported function 'PortsClassInstaller' in module 'C:\Windows\system32\MsPorts.Dll'.
+     dvi:           Class installer == MsPorts.Dll,PortsClassInstaller
+     dvi:           Class installer: Enter 13:21:37.504
+     dvi:           Class installer: Exit
+     dvi:           Default installer: Enter 13:21:37.504
+     dvi:                {Select Best Driver}
+     dvi:                     Class GUID of device remains: {4d36e978-e325-11ce-bfc1-08002be10318}.
+     dvi:                     Selected Driver:
+     dvi:                          Description - Arduino Uno
+     dvi:                          InfFile     - c:\windows\system32\driverstore\filerepository\arduino.inf_amd64_f9ccd9c82d0e09d1\arduino.inf
+     dvi:                          Section     - DriverInstall
+     dvi:                {Select Best Driver - exit(0x00000000)}
+     dvi:           Default installer: Exit
+     dvi:      {DIF_SELECTBESTCOMPATDRV - exit(0x00000000)} 13:21:37.506
+     ndv:      Force Installing Driver:
+     ndv:           Inf Name       - oem104.inf
+     ndv:           Driver Date    - 11/24/2015
+     ndv:           Driver Version - 1.2.3.0
+     ndv:      Driver package 'C:\Windows\System32\DriverStore\FileRepository\arduino.inf_amd64_f9ccd9c82d0e09d1\arduino.inf' is already imported.
+     sto:      {Setup Import Driver Package: C:\Windows\INF\oem104.inf} 13:21:37.512
+     sto:           Driver package already imported as 'oem104.inf'.
+     sto:           {Setup Import Driver Package: C:\Windows\INF\arduino.inf} 13:21:37.520
+     sto:           {Setup Import Driver Package - exit (0x00000002)} 13:21:37.520
+     sto:      {Setup Import Driver Package - exit (0x00000000)} 13:21:37.521
+     dvi:      Searching for hardware ID(s):
+     dvi:           usb\vid_2341&pid_0043&rev_0001
+     dvi:           usb\vid_2341&pid_0043
+     dvi:      Searching for compatible ID(s):
+     dvi:           usb\compat_vid_2341&class_02&subclass_02&prot_01
+     dvi:           usb\compat_vid_2341&class_02&subclass_02
+     dvi:           usb\compat_vid_2341&class_02
+     dvi:           usb\class_02&subclass_02&prot_01
+     dvi:           usb\class_02&subclass_02
+     dvi:           usb\class_02
+     dvi:      Class GUID of device remains: {4d36e978-e325-11ce-bfc1-08002be10318}.
+     ump:      {Plug and Play Service: Device Install for USB\VID_2341&PID_0043\558343236333517071E1}
+!    dvi:           Device class {4d36e978-e325-11ce-bfc1-08002be10318} is not configurable.
+     dvi:           Install flags: 0x00010211
+     dvi:           Searching for hardware ID(s):
+     dvi:                usb\vid_2341&pid_0043&rev_0001
+     dvi:                usb\vid_2341&pid_0043
+     dvi:           Searching for compatible ID(s):
+     dvi:                usb\compat_vid_2341&class_02&subclass_02&prot_01
+     dvi:                usb\compat_vid_2341&class_02&subclass_02
+     dvi:                usb\compat_vid_2341&class_02
+     dvi:                usb\class_02&subclass_02&prot_01
+     dvi:                usb\class_02&subclass_02
+     dvi:                usb\class_02
+     dvi:           Class GUID of device changed to: {4d36e978-e325-11ce-bfc1-08002be10318}.
+     ndv:           {Core Device Install} 13:21:37.562
+     dvi:                {Install Device - USB\VID_2341&PID_0043\558343236333517071E1} 13:21:37.563
+     dvi:                     Device Status: 0x0180600a
+     dvi:                     Config Flags: 0x00000000
+     dvi:                     Parent Device: USB\ROOT_HUB30\4&1327df74&0&0
+     dvi:                     {DIF_ALLOW_INSTALL} 13:21:37.566
+     dvi:                          Using exported function 'PortsClassInstaller' in module 'C:\Windows\system32\MsPorts.Dll'.
+     dvi:                          Class installer == MsPorts.Dll,PortsClassInstaller
+     dvi:                          Class installer: Enter 13:21:37.570
+     dvi:                          Class installer: Exit
+     dvi:                          Default installer: Enter 13:21:37.570
+     dvi:                          Default installer: Exit
+     dvi:                     {DIF_ALLOW_INSTALL - exit(0xe000020e)} 13:21:37.570
+     dvi:                     {DIF_INSTALLDEVICEFILES} 13:21:37.571
+     dvi:                          Class installer: Enter 13:21:37.571
+     dvi:                          Class installer: Exit
+     dvi:                          Default installer: Enter 13:21:37.572
+!    flq:                               Missing SourceDisksFiles/SourceDisksNames information from INF.
+!    flq:                               Default INBOX source locations pulled from pre-built DrvIndex
+     dvi:                          Default installer: Exit
+     dvi:                     {DIF_INSTALLDEVICEFILES - exit(0x00000000)} 13:21:37.594
+     dvi:                     {_SCAN_FILE_QUEUE} 13:21:37.594
+     flq:                          File 'C:\Windows\system32\DRIVERS\usbser.sys' pruned from copy.
+     dvi:                     {_SCAN_FILE_QUEUE - exit(0x00000000)} 13:21:37.642
+     flq:                     {FILE_QUEUE_COMMIT} 13:21:37.643
+     flq:                     {FILE_QUEUE_COMMIT - exit(0x00000000)} 13:21:37.644
+     dvi:                     {DIF_REGISTER_COINSTALLERS} 13:21:37.645
+     dvi:                          Reset Device: Resetting device configuration. 13:21:37.647
+     dvi:                          Reset Device: Resetting device configuration completed. 13:21:37.649
+     dvi:                          Class installer: Enter 13:21:37.650
+     dvi:                          Class installer: Exit
+     dvi:                          Default installer: Enter 13:21:37.652
+     inf:                               {Install from INF Section - DriverInstall.CoInstallers} 13:21:37.653
+     inf:                                    Flags         - 0x001001ee
+     inf:                               {Install from INF Section - exit(0x00000000)} 13:21:37.653
+     dvi:                          Default installer: Exit
+     dvi:                     {DIF_REGISTER_COINSTALLERS - exit(0x00000000)} 13:21:37.654
+     dvi:                     {DIF_INSTALLINTERFACES} 13:21:37.655
+     dvi:                          Class installer: Enter 13:21:37.657
+     dvi:                          Class installer: Exit
+     dvi:                          Default installer: Enter 13:21:37.659
+     dvi:                          Default installer: Exit
+     dvi:                     {DIF_INSTALLINTERFACES - exit(0x00000000)} 13:21:37.665
+     dvi:                     {DIF_INSTALLDEVICE} 13:21:37.665
+     dvi:                          Class installer: Enter 13:21:37.666
+     inf:                               {Install from INF Section - DriverInstall} 13:21:37.670
+     inf:                                    Flags         - 0x00000004
+     inf:                               {Install from INF Section - exit(0x00000000)} 13:21:37.672
+     dvi:                               {Install DEVICE}
+     inf:                                    {Install from INF Section - DriverInstall} 13:21:37.688
+     inf:                                         Flags         - 0x001005ee
+     inf:                                    {Install from INF Section - exit(0x00000000)} 13:21:37.690
+     dvi:                                    {Writing Device Properties}
+     dvi:                                         Strong Name=oem104.inf:c14ce884adbadcde:DriverInstall:1.2.3.0:usb\vid_2341&pid_0043
+     dvi:                                    {Writing Device Properties - Complete}
+     inf:                                    AddService=usbser,0x00000002,DriverService  (arduino.inf line 204)
+     dvi:                                    Add Service: Modified existing service 'usbser'.
+     inf:                                    {Install from INF Section - DriverService} 13:21:37.717
+     inf:                                         Flags         - 0x00100004
+     inf:                                    {Install from INF Section - exit(0x00000000)} 13:21:37.718
+     dvi:                               {Install DEVICE exit (0x00000000)}
+     dvi:                               Install Device: Configuring device class. 13:21:37.725
+     dvi:                               Install Device: Configuring device class completed. 13:21:37.726
+     dvi:                               Device Status: 0x0180600a
+     dvi:                               Install Device: Removing device 'USB\VID_2341&PID_0043\558343236333517071E1' and sub-tree. 13:21:37.728
+     dvi:                               Install Device: Removing device sub-tree completed. 13:21:37.735
+     dvi:                               Install Device: Restarting device. 13:21:37.737
+     dvi:                               Install Device: Restarting device completed. 13:21:37.956
+     dvi:                          Class installer: Exit
+     dvi:                     {DIF_INSTALLDEVICE - exit(0x00000000)} 13:21:37.962
+     dvi:                     {DIF_NEWDEVICEWIZARD_FINISHINSTALL} 13:21:37.963
+     dvi:                          Class installer: Enter 13:21:37.963
+     dvi:                          Class installer: Exit
+     dvi:                          Default installer: Enter 13:21:37.965
+     dvi:                          Default installer: Exit
+     dvi:                     {DIF_NEWDEVICEWIZARD_FINISHINSTALL - exit(0xe000020e)} 13:21:37.966
+     dvi:                {Install Device - exit(0x00000000)} 13:21:37.967
+     dvi:           {Core Device Install - exit(0x00000000)} 13:21:37.968
+     dvi:           {DIF_DESTROYPRIVATEDATA} 13:21:37.970
+     dvi:                Class installer: Enter 13:21:37.970
+     dvi:                Class installer: Exit
+     dvi:                Default installer: Enter 13:21:37.971
+     dvi:                Default installer: Exit
+     dvi:           {DIF_DESTROYPRIVATEDATA - exit(0xe000020e)} 13:21:37.972
+     ump:      {Plug and Play Service: Device Install exit(00000000)}
+     dvi:      {DIF_DESTROYPRIVATEDATA} 13:21:37.982
+     dvi:           Class installer: Enter 13:21:37.983
+     dvi:           Class installer: Exit
+     dvi:           Default installer: Enter 13:21:37.984
+     dvi:           Default installer: Exit
+     dvi:      {DIF_DESTROYPRIVATEDATA - exit(0xe000020e)} 13:21:37.985
+     ndv: {Update Device Driver - exit(00000000)}
+     ndv: {Install Related Drivers} 13:21:37.986
+     ndv: {Install Related Drivers: exit(0x00000000)} 13:21:37.987
+<<<  Section end 2026/11/19 13:21:37.995
+<<<  [Exit status: SUCCESS]
+
+
+>>>  [SetupCopyOEMInf - C:\Windows\System32\DriverStore\FileRepository\arduino.inf_amd64_f9ccd9c82d0e09d1\arduino.inf]
+>>>  Section start 2026/11/19 13:21:37.995
+      cmd: "C:\Users\kaush\OneDrive\Documents\ArduinoData\packages\arduino\hardware\avr\1.8.8\drivers\dpinst-amd64.exe"  /LM /SW /SA
+     inf: Copy style: 0x00000002
+     inf: Driver Store Path: C:\Windows\System32\DriverStore\FileRepository\arduino.inf_amd64_f9ccd9c82d0e09d1\arduino.inf
+     inf: Published Inf Path: C:\Windows\INF\oem104.inf
+<<<  Section end 2026/11/19 13:21:37.996
+<<<  [Exit status: SUCCESS]
+
+
+>>>  [Setup Import Driver Package - c:\users\kaush\onedrive\documents\arduinodata\packages\arduino\hardware\avr\1.8.8\drivers\gemma\arduino_gemma.inf]
+>>>  Section start 2026/11/19 13:21:40.226
+      cmd: "C:\Users\kaush\OneDrive\Documents\ArduinoData\packages\arduino\hardware\avr\1.8.8\drivers\dpinst-amd64.exe"  /PATH "C:\Users\kaush\OneDrive\Documents\ArduinoData\packages\arduino\hardware\avr\1.8.8\drivers\gemma" /LM /SW /SA
+     inf: Provider: libusb-win32
+     inf: Class GUID: {EB781AAF-9C70-4523-A5DF-642A87ECA567}
+     inf: Driver Version: 04/21/2015,1.0.0.0
+     inf: Catalog File: arduino_gemma.cat
+     sto: {Copy Driver Package: c:\users\kaush\onedrive\documents\arduinodata\packages\arduino\hardware\avr\1.8.8\drivers\gemma\arduino_gemma.inf} 13:21:40.230
+     sto:      Driver Package = c:\users\kaush\onedrive\documents\arduinodata\packages\arduino\hardware\avr\1.8.8\drivers\gemma\arduino_gemma.inf
+     sto:      Flags          = 0x00000007
+     sto:      Destination    = C:\Users\kaush\AppData\Local\Temp\{49911214-e525-1f42-bd6f-38e6dbe8504a}
+     sto:      Copying driver package files to 'C:\Users\kaush\AppData\Local\Temp\{49911214-e525-1f42-bd6f-38e6dbe8504a}'.
+     flq:      {FILE_QUEUE_COMMIT} 13:21:40.235
+     flq:           Copying 'c:\users\kaush\onedrive\documents\arduinodata\packages\arduino\hardware\avr\1.8.8\drivers\gemma\amd64\libusb0.dll' to 'C:\Users\kaush\AppData\Local\Temp\{49911214-e525-1f42-bd6f-38e6dbe8504a}\amd64\libusb0.dll'.
+     flq:           Copying 'c:\users\kaush\onedrive\documents\arduinodata\packages\arduino\hardware\avr\1.8.8\drivers\gemma\amd64\libusb0.sys' to 'C:\Users\kaush\AppData\Local\Temp\{49911214-e525-1f42-bd6f-38e6dbe8504a}\amd64\libusb0.sys'.
+     flq:           Copying 'c:\users\kaush\onedrive\documents\arduinodata\packages\arduino\hardware\avr\1.8.8\drivers\gemma\x86\libusb0_x86.dll' to 'C:\Users\kaush\AppData\Local\Temp\{49911214-e525-1f42-bd6f-38e6dbe8504a}\x86\libusb0_x86.dll'.
+     flq:           Copying 'c:\users\kaush\onedrive\documents\arduinodata\packages\arduino\hardware\avr\1.8.8\drivers\gemma\arduino_gemma.cat' to 'C:\Users\kaush\AppData\Local\Temp\{49911214-e525-1f42-bd6f-38e6dbe8504a}\arduino_gemma.cat'.
+     flq:           Copying 'c:\users\kaush\onedrive\documents\arduinodata\packages\arduino\hardware\avr\1.8.8\drivers\gemma\arduino_gemma.inf' to 'C:\Users\kaush\AppData\Local\Temp\{49911214-e525-1f42-bd6f-38e6dbe8504a}\arduino_gemma.inf'.
+     flq:      {FILE_QUEUE_COMMIT - exit(0x00000000)} 13:21:40.259
+     sto: {Copy Driver Package: exit(0x00000000)} 13:21:40.259
+     ump: Import flags: 0x00000000
+     pol: {Driver package policy check} 13:21:40.288
+     pol: {Driver package policy check - exit(0x00000000)} 13:21:40.288
+     sto: {Stage Driver Package: C:\Users\kaush\AppData\Local\Temp\{49911214-e525-1f42-bd6f-38e6dbe8504a}\arduino_gemma.inf} 13:21:40.289
+     inf:      Provider       = libusb-win32
+     inf:      Class GUID     = {eb781aaf-9c70-4523-a5df-642a87eca567}
+     inf:      Driver Version = 04/21/2015,1.0.0.0
+     inf:      Catalog File   = arduino_gemma.cat
+     inf:      Version Flags  = 0x00000011
+     inf:      {Query Configurability: C:\Users\kaush\AppData\Local\Temp\{49911214-e525-1f42-bd6f-38e6dbe8504a}\arduino_gemma.inf} 13:21:40.300
+!    inf:           Driver package 'arduino_gemma.inf' is NOT configurable.
+     inf:      {Query Configurability: exit(0x00000000)} 13:21:40.304
+     flq:      {FILE_QUEUE_COMMIT} 13:21:40.306
+     flq:           Copying 'C:\Users\kaush\AppData\Local\Temp\{49911214-e525-1f42-bd6f-38e6dbe8504a}\amd64\libusb0.dll' to 'C:\Windows\System32\DriverStore\Temp\{27a73634-486c-614b-9e15-fa92499c09b4}\amd64\libusb0.dll'.
+     flq:           Copying 'C:\Users\kaush\AppData\Local\Temp\{49911214-e525-1f42-bd6f-38e6dbe8504a}\amd64\libusb0.sys' to 'C:\Windows\System32\DriverStore\Temp\{27a73634-486c-614b-9e15-fa92499c09b4}\amd64\libusb0.sys'.
+     flq:           Copying 'C:\Users\kaush\AppData\Local\Temp\{49911214-e525-1f42-bd6f-38e6dbe8504a}\x86\libusb0_x86.dll' to 'C:\Windows\System32\DriverStore\Temp\{27a73634-486c-614b-9e15-fa92499c09b4}\x86\libusb0_x86.dll'.
+     flq:           Copying 'C:\Users\kaush\AppData\Local\Temp\{49911214-e525-1f42-bd6f-38e6dbe8504a}\arduino_gemma.cat' to 'C:\Windows\System32\DriverStore\Temp\{27a73634-486c-614b-9e15-fa92499c09b4}\arduino_gemma.cat'.
+     flq:           Copying 'C:\Users\kaush\AppData\Local\Temp\{49911214-e525-1f42-bd6f-38e6dbe8504a}\arduino_gemma.inf' to 'C:\Windows\System32\DriverStore\Temp\{27a73634-486c-614b-9e15-fa92499c09b4}\arduino_gemma.inf'.
+     flq:      {FILE_QUEUE_COMMIT - exit(0x00000000)} 13:21:40.337
+     sto:      {DRIVERSTORE IMPORT VALIDATE} 13:21:40.339
+     sig:           Driver package catalog is valid.
+     sig:           {_VERIFY_FILE_SIGNATURE} 13:21:40.356
+     sig:                Key      = arduino_gemma.inf
+     sig:                FilePath = C:\Windows\System32\DriverStore\Temp\{27a73634-486c-614b-9e15-fa92499c09b4}\arduino_gemma.inf
+     sig:                Catalog  = C:\Windows\System32\DriverStore\Temp\{27a73634-486c-614b-9e15-fa92499c09b4}\arduino_gemma.cat
+!    sig:                Verifying file against specific (valid) catalog failed.
+!    sig:                Error 0x800b0109: A certificate chain processed, but terminated in a root certificate which is not trusted by the trust provider.
+     sig:           {_VERIFY_FILE_SIGNATURE exit(0x800b0109)} 13:21:40.390
+     sig:           {_VERIFY_FILE_SIGNATURE} 13:21:40.394
+     sig:                Key      = arduino_gemma.inf
+     sig:                FilePath = C:\Windows\System32\DriverStore\Temp\{27a73634-486c-614b-9e15-fa92499c09b4}\arduino_gemma.inf
+     sig:                Catalog  = C:\Windows\System32\DriverStore\Temp\{27a73634-486c-614b-9e15-fa92499c09b4}\arduino_gemma.cat
+     sig:                Success: File is signed in Authenticode(tm) catalog.
+     sig:                Error 0xe0000241: The INF was signed with an Authenticode(tm) catalog from a trusted publisher.
+     sig:           {_VERIFY_FILE_SIGNATURE exit(0xe0000241)} 13:21:40.417
+     sto:      {DRIVERSTORE IMPORT VALIDATE: exit(0x00000000)} 13:21:40.421
+     sig:      Signer Score  = 0x0F000000 (Authenticode)
+     sig:      Signer Name   = Arduino LLC
+     sto:      {Core Driver Package Import: arduino_gemma.inf_amd64_ccc1c03de7b2c57b} 13:21:40.423
+     sto:           {DRIVERSTORE IMPORT BEGIN} 13:21:40.423
+     sto:           {DRIVERSTORE IMPORT BEGIN: exit(0x00000000)} 13:21:40.424
+     cpy:           {Copy Directory: C:\Windows\System32\DriverStore\Temp\{27a73634-486c-614b-9e15-fa92499c09b4}} 13:21:40.424
+     cpy:                Target Path = C:\Windows\System32\DriverStore\FileRepository\arduino_gemma.inf_amd64_ccc1c03de7b2c57b
+     cpy:                {Copy Directory: C:\Windows\System32\DriverStore\Temp\{27a73634-486c-614b-9e15-fa92499c09b4}\amd64} 13:21:40.426
+     cpy:                     Target Path = C:\Windows\System32\DriverStore\FileRepository\arduino_gemma.inf_amd64_ccc1c03de7b2c57b\amd64
+     cpy:                {Copy Directory: exit(0x00000000)} 13:21:40.428
+     cpy:                {Copy Directory: C:\Windows\System32\DriverStore\Temp\{27a73634-486c-614b-9e15-fa92499c09b4}\x86} 13:21:40.429
+     cpy:                     Target Path = C:\Windows\System32\DriverStore\FileRepository\arduino_gemma.inf_amd64_ccc1c03de7b2c57b\x86
+     cpy:                {Copy Directory: exit(0x00000000)} 13:21:40.430
+     cpy:           {Copy Directory: exit(0x00000000)} 13:21:40.431
+     idb:           {Register Driver Package: C:\Windows\System32\DriverStore\FileRepository\arduino_gemma.inf_amd64_ccc1c03de7b2c57b\arduino_gemma.inf} 13:21:40.437
+     idb:                Created driver package object 'arduino_gemma.inf_amd64_ccc1c03de7b2c57b' in DRIVERS database node.
+     idb:                Created driver INF file object 'oem123.inf' in DRIVERS database node.
+     idb:                Registered driver package 'arduino_gemma.inf_amd64_ccc1c03de7b2c57b' with 'oem123.inf'.
+     idb:                {Configure Device Setup Class: {eb781aaf-9c70-4523-a5df-642a87eca567}}
+     idb:                     Class Name = libusb-win32 devices
+     idb:                {Configure Device Setup Class: exit(0x00000000)}
+     flq:                {FILE_QUEUE_COMMIT} 13:21:40.445
+     flq:                {FILE_QUEUE_COMMIT - exit(0x00000000)} 13:21:40.446
+     idb:           {Register Driver Package: exit(0x00000000)} 13:21:40.446
+     idb:           {Publish Driver Package: C:\Windows\System32\DriverStore\FileRepository\arduino_gemma.inf_amd64_ccc1c03de7b2c57b\arduino_gemma.inf} 13:21:40.446
+     idb:                Activating driver package 'arduino_gemma.inf_amd64_ccc1c03de7b2c57b'.
+     cpy:                Published 'arduino_gemma.inf_amd64_ccc1c03de7b2c57b\arduino_gemma.inf' to 'oem123.inf'.
+     idb:                Indexed 2 device IDs for 'arduino_gemma.inf_amd64_ccc1c03de7b2c57b'.
+     sto:                Flushed driver database node 'DRIVERS'. Time = 0 ms
+     sto:                Flushed driver database node 'SYSTEM'. Time = 0 ms
+     idb:           {Publish Driver Package: exit(0x00000000)} 13:21:40.458
+     sto:           {DRIVERSTORE IMPORT END} 13:21:40.459
+     dvi:                Flushed all driver package files to disk. Time = 1 ms
+     sig:                Installed catalog 'arduino_gemma.cat' as 'oem123.cat'.
+     sto:           {DRIVERSTORE IMPORT END: exit(0x00000000)} 13:21:40.471
+     sto:           CopyINF driver package 'arduino_gemma.inf' is already imported as 'oem123.inf' (C:\Windows\System32\DriverStore\FileRepository\arduino_gemma.inf_amd64_ccc1c03de7b2c57b\arduino_gemma.inf)
+     sto:      {Core Driver Package Import: exit(0x00000000)} 13:21:40.476
+     sto: {Stage Driver Package: exit(0x00000000)} 13:21:40.479
+<<<  Section end 2026/11/19 13:21:40.535
+<<<  [Exit status: SUCCESS]
+
+
+>>>  [SetupCopyOEMInf - C:\Windows\System32\DriverStore\FileRepository\arduino_gemma.inf_amd64_ccc1c03de7b2c57b\arduino_gemma.inf]
+>>>  Section start 2026/11/19 13:21:40.535
+      cmd: "C:\Users\kaush\OneDrive\Documents\ArduinoData\packages\arduino\hardware\avr\1.8.8\drivers\dpinst-amd64.exe"  /PATH "C:\Users\kaush\OneDrive\Documents\ArduinoData\packages\arduino\hardware\avr\1.8.8\drivers\gemma" /LM /SW /SA
+     inf: Copy style: 0x00040000
+     inf: Driver Store Path: C:\Windows\System32\DriverStore\FileRepository\arduino_gemma.inf_amd64_ccc1c03de7b2c57b\arduino_gemma.inf
+     inf: Published Inf Path: C:\Windows\INF\oem123.inf
+     sig: Installing catalog arduino_gemma.cat as: oem123.CAT
+<<<  Section end 2026/11/19 13:21:40.548
+<<<  [Exit status: SUCCESS]
+
