@@ -38,4 +38,3 @@ Thumbs.db
 desktop.ini
 *.log
 !data/real_datasets/*.log
-push_to_github.bat
