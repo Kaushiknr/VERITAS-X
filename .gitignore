@@ -3,10 +3,13 @@ __pycache__/
 *.py[cod]
 *$py.class
 
-# PyInstaller & Build artifacts
-build/
-dist/
+# PyInstaller & Root Build artifacts
+/build/
+/dist/
 *.spec
+
+# Keep compiled web assets
+!web/dist/
 
 # Pytest & Cache
 .pytest_cache/

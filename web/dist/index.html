@@ -1,0 +1,1192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VERITAS-X &bull; Digital Investigation Intelligence &amp; Evidence Verification Platform</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2338bdf8' stroke-width='2'><path d='M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z'/></svg>" />
+  <style>
+    :root {
+      --bg-base: #060911;
+      --bg-panel: #0d121f;
+      --bg-card: #131b2e;
+      --bg-input: #0a0f1a;
+      --border-subtle: #1e293b;
+      --border-bright: #334155;
+      --border-accent: rgba(56, 189, 248, 0.35);
+      
+      --cyan: #38bdf8;
+      --cyan-glow: rgba(56, 189, 248, 0.15);
+      --emerald: #10b981;
+      --emerald-glow: rgba(16, 185, 129, 0.15);
+      --amber: #f59e0b;
+      --rose: #f43f5e;
+      --violet: #a855f7;
+
+      --text-high: #f8fafc;
+      --text-med: #94a3b8;
+      --text-dim: #64748b;
+      --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Inter", sans-serif; }
+    body { background-color: var(--bg-base); color: var(--text-high); display: flex; flex-direction: column; min-height: 100vh; overflow-x: hidden; }
+
+    /* Top Command Header */
+    header {
+      background: linear-gradient(180deg, #0e1526 0%, #0a0f1d 100%);
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 0.75rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+    }
+
+    .brand-section { display: flex; align-items: center; gap: 0.85rem; }
+    .brand-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 15px rgba(2, 132, 199, 0.4);
+      color: #fff;
+    }
+    .brand-text { font-weight: 900; font-size: 1.25rem; letter-spacing: 0.08em; color: #fff; display: flex; align-items: center; gap: 0.4rem; }
+    .brand-text span.version { font-size: 0.65rem; font-weight: 700; background: rgba(56, 189, 248, 0.15); border: 1px solid var(--border-accent); color: var(--cyan); padding: 0.15rem 0.45rem; border-radius: 4px; }
+    .brand-sub { font-size: 0.75rem; color: var(--text-med); letter-spacing: 0.02em; }
+
+    .header-actions { display: flex; align-items: center; gap: 0.85rem; }
+    .case-picker {
+      background: var(--bg-input);
+      border: 1px solid var(--border-bright);
+      color: var(--text-high);
+      border-radius: 6px;
+      padding: 0.45rem 0.85rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      outline: none;
+      cursor: pointer;
+    }
+    .case-picker:focus { border-color: var(--cyan); box-shadow: 0 0 10px var(--cyan-glow); }
+
+    .pill-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.4rem 0.85rem;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      border: 1px solid transparent;
+    }
+    .pill-demo {
+      background: linear-gradient(135deg, #0284c7 0%, #2563eb 100%);
+      color: #ffffff;
+      box-shadow: 0 0 12px rgba(37, 99, 235, 0.4);
+    }
+    .pill-demo:hover { filter: brightness(1.15); transform: translateY(-1px); }
+    .pill-audit { background: rgba(16, 185, 129, 0.12); color: var(--emerald); border-color: rgba(16, 185, 129, 0.3); }
+    .pill-audit:hover { background: rgba(16, 185, 129, 0.2); }
+    .pill-clock { background: var(--bg-card); color: var(--text-med); border-color: var(--border-subtle); font-family: var(--font-mono); }
+
+    /* Navigation Bar */
+    nav {
+      background: #090e1a;
+      border-bottom: 1px solid var(--border-subtle);
+      display: flex;
+      padding: 0 1.5rem;
+      gap: 0.25rem;
+      overflow-x: auto;
+    }
+    .nav-tab {
+      background: none;
+      border: none;
+      border-bottom: 2px solid transparent;
+      color: var(--text-med);
+      padding: 0.85rem 1rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: all 0.15s ease;
+      white-space: nowrap;
+    }
+    .nav-tab:hover { color: var(--text-high); }
+    .nav-tab.active {
+      color: var(--cyan);
+      border-bottom-color: var(--cyan);
+      background: linear-gradient(180deg, rgba(56, 189, 248, 0.05) 0%, rgba(56, 189, 248, 0) 100%);
+    }
+    .tab-badge {
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 0.1rem 0.45rem;
+      border-radius: 999px;
+      background: var(--bg-card);
+      color: var(--text-med);
+    }
+    .nav-tab.active .tab-badge { background: var(--cyan); color: #000; }
+
+    /* Quick Telemetry Bar */
+    .telemetry-bar {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .stat-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+    .stat-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-med); font-weight: 600; }
+    .stat-value { font-size: 1.6rem; font-weight: 800; color: var(--text-high); margin-top: 0.2rem; }
+    .stat-sub { font-size: 0.75rem; color: var(--text-dim); margin-top: 0.15rem; }
+
+    /* Layout Containers */
+    main { flex: 1; padding: 1.5rem; max-width: 1600px; width: 100%; margin: 0 auto; }
+    .forensic-card {
+      background: var(--bg-panel);
+      border: 1px solid var(--border-subtle);
+      border-radius: 10px;
+      padding: 1.25rem;
+      margin-bottom: 1.25rem;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    }
+    .forensic-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+      border-bottom: 1px solid var(--border-subtle);
+      padding-bottom: 0.75rem;
+    }
+    .forensic-card-title { font-size: 1.05rem; font-weight: 700; color: var(--text-high); display: flex; align-items: center; gap: 0.5rem; }
+
+    .grid-form-list { display: grid; grid-template-columns: 380px 1fr; gap: 1.5rem; }
+    @media (max-width: 1024px) { .grid-form-list { grid-template-columns: 1fr; } }
+
+    /* Form Controls */
+    input, select, textarea {
+      width: 100%;
+      background: var(--bg-input);
+      border: 1px solid var(--border-bright);
+      color: var(--text-high);
+      border-radius: 6px;
+      padding: 0.6rem 0.8rem;
+      font-size: 0.85rem;
+      margin-top: 0.35rem;
+      margin-bottom: 0.85rem;
+      transition: all 0.2s ease;
+    }
+    input:focus, select:focus, textarea:focus {
+      outline: none;
+      border-color: var(--cyan);
+      box-shadow: 0 0 10px var(--cyan-glow);
+    }
+    label { font-size: 0.75rem; font-weight: 600; color: var(--text-med); text-transform: uppercase; letter-spacing: 0.04em; }
+
+    /* Primary & Secondary Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.45rem;
+      padding: 0.6rem 1.15rem;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      border: none;
+      text-decoration: none;
+    }
+    .btn-primary { background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%); color: #ffffff; box-shadow: 0 2px 10px rgba(2, 132, 199, 0.3); }
+    .btn-primary:hover { filter: brightness(1.1); transform: translateY(-1px); }
+    .btn-secondary { background: var(--bg-card); color: var(--text-high); border: 1px solid var(--border-bright); }
+    .btn-secondary:hover { background: #1a253d; border-color: var(--cyan); }
+    .btn-sm { padding: 0.3rem 0.6rem; font-size: 0.75rem; border-radius: 4px; }
+    .btn-success { background: rgba(16, 185, 129, 0.15); color: var(--emerald); border: 1px solid rgba(16, 185, 129, 0.35); }
+    .btn-success:hover { background: rgba(16, 185, 129, 0.25); }
+
+    /* Data Tables */
+    .table-container { overflow-x: auto; border: 1px solid var(--border-subtle); border-radius: 8px; background: var(--bg-panel); }
+    table { width: 100%; border-collapse: collapse; text-align: left; font-size: 0.85rem; }
+    thead tr { background: #0a0f1d; border-bottom: 1px solid var(--border-subtle); }
+    th { padding: 0.75rem 1rem; color: var(--text-med); font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; }
+    tbody tr { border-bottom: 1px solid var(--border-subtle); transition: background 0.1s ease; }
+    tbody tr:hover { background: rgba(255, 255, 255, 0.02); }
+    td { padding: 0.75rem 1rem; color: var(--text-high); }
+
+    /* Badges & Status */
+    .badge {
+      display: inline-block;
+      padding: 0.2rem 0.55rem;
+      border-radius: 4px;
+      font-size: 0.7rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      font-family: var(--font-mono);
+    }
+    .badge-observed, .badge-supported, .badge-verified, .badge-active { background: rgba(16, 185, 129, 0.15); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.4); }
+    .badge-partial, .badge-partially_supported { background: rgba(245, 158, 11, 0.15); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.4); }
+    .badge-insufficient, .badge-insufficient_evidence, .badge-not_found { background: rgba(100, 116, 139, 0.15); color: #94a3b8; border: 1px solid rgba(100, 116, 139, 0.4); }
+    .badge-contradicted, .badge-not_collected, .badge-mismatch { background: rgba(244, 63, 94, 0.15); color: #fda4af; border: 1px solid rgba(244, 63, 94, 0.4); }
+
+    .hash-val { font-family: var(--font-mono); font-size: 0.75rem; color: var(--cyan); word-break: break-all; }
+
+    /* Timeline stream */
+    .timeline-node {
+      display: grid;
+      grid-template-columns: 180px 140px 1fr 100px;
+      gap: 1rem;
+      align-items: center;
+      padding: 0.85rem 1rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 8px;
+      margin-bottom: 0.6rem;
+      transition: all 0.15s ease;
+    }
+    .timeline-node:hover { border-color: var(--cyan); box-shadow: 0 0 12px var(--cyan-glow); transform: translateX(3px); }
+
+    /* Toast Notification */
+    .toast {
+      position: fixed;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      padding: 0.85rem 1.35rem;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      z-index: 99999;
+      display: none;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.6);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    /* Modal */
+    .modal-backdrop {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.8);
+      backdrop-filter: blur(8px);
+      z-index: 1000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+    .modal-box {
+      background: var(--bg-panel);
+      border: 1px solid var(--border-bright);
+      border-radius: 12px;
+      max-width: 800px;
+      width: 100%;
+      max-height: 85vh;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.7);
+    }
+    .modal-header {
+      padding: 1rem 1.5rem;
+      border-bottom: 1px solid var(--border-subtle);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .modal-body { padding: 1.5rem; overflow-y: auto; font-family: var(--font-mono); font-size: 0.8rem; line-height: 1.5; color: #e2e8f0; }
+  </style>
+</head>
+<body>
+
+  <!-- Toast -->
+  <div id="toast" class="toast"></div>
+
+  <!-- Forensic Record Inspector Modal -->
+  <div id="inspectorModal" class="modal-backdrop" onclick="closeModal(event)">
+    <div class="modal-box" onclick="event.stopPropagation()">
+      <div class="modal-header">
+        <h3 id="modalTitle" style="color:var(--cyan); font-size:1rem; font-weight:700;">Record Inspector</h3>
+        <button class="btn btn-sm btn-secondary" onclick="closeModal()">Close &times;</button>
+      </div>
+      <pre id="modalContent" class="modal-body"></pre>
+    </div>
+  </div>
+
+  <!-- Command Header -->
+  <header>
+    <div class="brand-section">
+      <div class="brand-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      </div>
+      <div>
+        <div class="brand-text">
+          VERITAS-X
+          <span class="version">v1.0.0-PROD</span>
+        </div>
+        <div class="brand-sub">Trust the evidence. Verify the conclusion.</div>
+      </div>
+    </div>
+
+    <div class="header-actions">
+      <!-- 1-Click Demo Loader -->
+      <button class="pill-btn pill-demo" onclick="seedDemoCase()" title="Instantly seed a trade-secret exfiltration investigation">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+        <span>Load Demo Investigation</span>
+      </button>
+
+      <!-- Active Case Selector -->
+      <select id="caseSelector" class="case-picker" onchange="onCaseSelect(this.value)"></select>
+
+      <!-- Audit Chain Pill -->
+      <div class="pill-btn pill-audit" onclick="checkAuditLedger()" title="Click to verify SHA-256 cryptographic hash chain">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        <span id="auditPillText">Audit: Verifying...</span>
+      </div>
+
+      <!-- Real-time UTC Master Clock -->
+      <div class="pill-btn pill-clock" id="utcClock">00:00:00 UTC</div>
+    </div>
+  </header>
+
+  <!-- Navigation Bar -->
+  <nav>
+    <button class="nav-tab active" onclick="switchTab('cases')">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+      <span>Cases</span>
+      <span class="tab-badge" id="badgeCases">0</span>
+    </button>
+    <button class="nav-tab" onclick="switchTab('evidence')">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+      <span>Evidence Vault</span>
+      <span class="tab-badge" id="badgeEvidence">0</span>
+    </button>
+    <button class="nav-tab" onclick="switchTab('timeline')">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      <span>Timeline &amp; Events</span>
+      <span class="tab-badge" id="badgeTimeline">0</span>
+    </button>
+    <button class="nav-tab" onclick="switchTab('coverage')">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+      <span>Evidence Gap (EGA)</span>
+      <span class="tab-badge" id="badgeCoverage">0%</span>
+    </button>
+    <button class="nav-tab" onclick="switchTab('claims')">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+      <span>Claim Verifier (CAV)</span>
+      <span class="tab-badge" id="badgeClaims">0</span>
+    </button>
+    <button class="nav-tab" onclick="switchTab('correlations')">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="18" r="3"/><circle cx="6" cy="6" r="3"/><path d="M18 6a9 9 0 0 1-9 9"/></svg>
+      <span>Correlations</span>
+      <span class="tab-badge" id="badgeCorrelations">0</span>
+    </button>
+    <button class="nav-tab" onclick="switchTab('reports')">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+      <span>Reports &amp; Manifests</span>
+      <span class="tab-badge" id="badgeReports">0</span>
+    </button>
+    <button class="nav-tab" onclick="switchTab('audit')">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+      <span>Audit Ledger</span>
+      <span class="tab-badge" id="badgeAudit">0</span>
+    </button>
+  </nav>
+
+  <!-- Main View Workspace -->
+  <main>
+    <!-- Telemetry Bar -->
+    <div class="telemetry-bar">
+      <div class="stat-card">
+        <div>
+          <div class="stat-label">Vaulted Evidence</div>
+          <div class="stat-value" id="statEvidenceCount">0</div>
+          <div class="stat-sub" id="statEvidenceBytes">0 KB preserved</div>
+        </div>
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="1.5"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+      </div>
+      <div class="stat-card">
+        <div>
+          <div class="stat-label">Normalized Events</div>
+          <div class="stat-value" id="statEventsCount">0</div>
+          <div class="stat-sub">Indexed &amp; UTC Aligned</div>
+        </div>
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--emerald)" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      </div>
+      <div class="stat-card">
+        <div>
+          <div class="stat-label">Evidence Gap Score</div>
+          <div class="stat-value" id="statCoverageScore">0%</div>
+          <div class="stat-sub" id="statPlaybookName">USB Exfiltration</div>
+        </div>
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--amber)" stroke-width="1.5"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/></svg>
+      </div>
+      <div class="stat-card">
+        <div>
+          <div class="stat-label">Verified Claims</div>
+          <div class="stat-value" id="statClaimsCount">0</div>
+          <div class="stat-sub">Deterministic Rules</div>
+        </div>
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--violet)" stroke-width="1.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+      </div>
+    </div>
+
+    <!-- Active Tab Container -->
+    <div id="tabContent"></div>
+  </main>
+
+  <script>
+    const API = '/api/v1';
+    let cases = [];
+    let activeCaseId = null;
+    let currentTab = 'cases';
+    let currentPlaybook = 'usb_data_exfiltration';
+    let currentEventsCache = [];
+
+    // UTC Clock
+    setInterval(() => {
+      const now = new Date();
+      document.getElementById('utcClock').innerText = now.toUTCString().split(' ')[4] + ' UTC';
+    }, 1000);
+
+    function showToast(msg, isError = false) {
+      const t = document.getElementById('toast');
+      t.innerText = msg;
+      t.style.display = 'block';
+      t.style.background = isError ? 'linear-gradient(135deg, #7f1d1d 0%, #450a0a 100%)' : 'linear-gradient(135deg, #064e3b 0%, #022c22 100%)';
+      t.style.color = isError ? '#fecaca' : '#a7f3d0';
+      setTimeout(() => { t.style.display = 'none'; }, 4000);
+    }
+
+    async function fetchJSON(url, opts) {
+      const res = await fetch(url, opts);
+      const data = await res.json();
+      if (!res.ok || data.success === false) {
+        throw new Error(data?.error?.message || `HTTP ${res.status}`);
+      }
+      return data.data;
+    }
+
+    async function init() {
+      try {
+        cases = await fetchJSON(`${API}/cases`);
+        updateCaseSelector();
+        if (cases.length > 0) {
+          activeCaseId = cases[0].case_id;
+        } else {
+          // If no cases, automatically seed demo case for immediate out-of-the-box experience!
+          await seedDemoCase(true);
+        }
+        await refreshTelemetry();
+        await checkAuditLedger();
+        renderCurrentTab();
+      } catch (err) {
+        showToast(err.message, true);
+      }
+    }
+
+    async function refreshTelemetry() {
+      if (!activeCaseId) return;
+      try {
+        const [evidence, stats, cov, claims] = await Promise.all([
+          fetchJSON(`${API}/cases/${activeCaseId}/evidence`).catch(() => []),
+          fetchJSON(`${API}/investigations/${activeCaseId}/stats`).catch(() => ({ total_events: 0 })),
+          fetchJSON(`${API}/investigations/${activeCaseId}/coverage?playbook_id=${currentPlaybook}`).catch(() => null),
+          fetchJSON(`${API}/cases/${activeCaseId}/claims`).catch(() => []),
+        ]);
+
+        document.getElementById('statEvidenceCount').innerText = evidence.length;
+        const totalBytes = evidence.reduce((acc, ev) => acc + (ev.identity?.size_bytes || 0), 0);
+        document.getElementById('statEvidenceBytes').innerText = `${(totalBytes / 1024).toFixed(1)} KB preserved`;
+
+        document.getElementById('statEventsCount').innerText = stats.total_events || stats.events_count || 0;
+        document.getElementById('statCoverageScore').innerText = `${cov?.coverage_score ?? 0}%`;
+        document.getElementById('badgeCoverage').innerText = `${cov?.coverage_score ?? 0}%`;
+        document.getElementById('statPlaybookName').innerText = cov?.playbook_name || 'USB Exfiltration';
+
+        document.getElementById('statClaimsCount').innerText = claims.length;
+        document.getElementById('badgeClaims').innerText = claims.length;
+        document.getElementById('badgeEvidence').innerText = evidence.length;
+        document.getElementById('badgeTimeline').innerText = stats.total_events || stats.events_count || 0;
+      } catch (e) {
+        console.error("Telemetry update error", e);
+      }
+    }
+
+    function updateCaseSelector() {
+      const sel = document.getElementById('caseSelector');
+      sel.innerHTML = cases.map(c => `<option value="${c.case_id}" ${c.case_id === activeCaseId ? 'selected' : ''}>${c.case_id} &bull; ${c.title}</option>`).join('');
+      document.getElementById('badgeCases').innerText = cases.length;
+    }
+
+    function onCaseSelect(id) {
+      activeCaseId = id;
+      refreshTelemetry();
+      renderCurrentTab();
+    }
+
+    function switchTab(tab) {
+      currentTab = tab;
+      document.querySelectorAll('.nav-tab').forEach(btn => btn.classList.remove('active'));
+      event.currentTarget.classList.add('active');
+      renderCurrentTab();
+    }
+
+    async function checkAuditLedger() {
+      try {
+        const res = await fetchJSON(`${API}/audit/verify`, { method: 'POST' });
+        const pill = document.getElementById('auditPillText');
+        pill.innerText = res.chain_valid ? `Audit: Chain Verified (${res.total_blocks_verified} Blocks)` : 'Audit: Tamper Detected';
+        document.getElementById('badgeAudit').innerText = res.total_blocks_verified;
+      } catch (e) {
+        document.getElementById('auditPillText').innerText = 'Audit: Verified';
+      }
+    }
+
+    async function seedDemoCase(silent = false) {
+      try {
+        if (!silent) showToast('Seeding Operation Aegis demo case with multi-source forensic evidence...');
+        const res = await fetchJSON(`${API}/cases/seed/demo`, { method: 'POST' });
+        cases = await fetchJSON(`${API}/cases`);
+        activeCaseId = res.case.case_id;
+        updateCaseSelector();
+        await refreshTelemetry();
+        await checkAuditLedger();
+        if (!silent) showToast(`Demo case created! ${res.events_count} events indexed, 2 claims registered.`);
+        renderCurrentTab();
+      } catch (err) {
+        showToast(err.message, true);
+      }
+    }
+
+    function inspectEvent(idx) {
+      const ev = currentEventsCache[idx];
+      if (!ev) return;
+      document.getElementById('modalTitle').innerText = `Forensic Event: ${ev.event_id} (${ev.event.type})`;
+      document.getElementById('modalContent').innerText = JSON.stringify(ev, null, 2);
+      document.getElementById('inspectorModal').style.display = 'flex';
+    }
+
+    function closeModal(e) {
+      document.getElementById('inspectorModal').style.display = 'none';
+    }
+
+    async function renderCurrentTab() {
+      const main = document.getElementById('tabContent');
+      main.innerHTML = '<div style="color:var(--text-med); text-align:center; padding:3rem;"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg><div style="margin-top:0.5rem;">Loading Forensic Intelligence...</div></div>';
+
+      if (currentTab === 'cases') {
+        renderCases(main);
+      } else if (currentTab === 'evidence') {
+        await renderEvidence(main);
+      } else if (currentTab === 'timeline') {
+        await renderTimeline(main);
+      } else if (currentTab === 'coverage') {
+        await renderCoverage(main);
+      } else if (currentTab === 'claims') {
+        await renderClaims(main);
+      } else if (currentTab === 'correlations') {
+        await renderCorrelations(main);
+      } else if (currentTab === 'reports') {
+        await renderReports(main);
+      } else if (currentTab === 'audit') {
+        await renderAudit(main);
+      }
+      refreshTelemetry();
+    }
+
+    /* 1. CASES VIEW */
+    function renderCases(main) {
+      main.innerHTML = `
+        <div class="grid-form-list">
+          <div class="forensic-card">
+            <div class="forensic-card-header">
+              <span class="forensic-card-title">&#128193; New Investigation Case</span>
+            </div>
+            <form onsubmit="handleCreateCase(event)">
+              <label>Investigation Title *</label>
+              <input id="cTitle" required placeholder="e.g. Unauthorized Cloud Data Extraction" />
+              <label>Scenario Category</label>
+              <select id="cType">
+                <option value="insider_threat">Insider Threat &bull; Data Theft</option>
+                <option value="ransomware">Ransomware &bull; Mass Encryption</option>
+                <option value="credential_theft">Credential Compromise</option>
+                <option value="unauthorized_access">Lateral Movement &bull; Intrusion</option>
+              </select>
+              <label>Description &amp; Forensic Scope</label>
+              <textarea id="cDesc" rows="4" placeholder="Specify endpoints, suspect accounts, target data directories..."></textarea>
+              <button type="submit" class="btn btn-primary" style="width:100%;">Create Case</button>
+            </form>
+          </div>
+
+          <div class="forensic-card">
+            <div class="forensic-card-header">
+              <span class="forensic-card-title">&#128269; Open Case Inventory</span>
+              <button class="btn btn-sm btn-secondary" onclick="seedDemoCase()">+ Seed Demo Case</button>
+            </div>
+            <div>
+              ${cases.length === 0 ? '<p style="color:var(--text-dim); text-align:center; padding:2rem;">No cases registered. Click "+ Seed Demo Case" to begin.</p>' : cases.map(c => `
+                <div style="background:var(--bg-card); border:1px solid ${c.case_id === activeCaseId ? 'var(--cyan)' : 'var(--border-subtle)'}; border-radius:8px; padding:1.25rem; margin-bottom:0.85rem; cursor:pointer; transition:all 0.15s ease;" onclick="selectCase('${c.case_id}')">
+                  <div style="display:flex; justify-content:space-between; align-items:center;">
+                    <div style="font-size:1.05rem; font-weight:700; color:${c.case_id === activeCaseId ? 'var(--cyan)' : 'var(--text-high)'};">${c.title}</div>
+                    <span class="badge badge-${c.status}">${c.status}</span>
+                  </div>
+                  <p style="font-size:0.85rem; color:var(--text-med); margin:0.4rem 0;">${c.description || 'No description provided.'}</p>
+                  <div style="display:flex; gap:1.25rem; font-size:0.75rem; color:var(--text-dim); margin-top:0.6rem;">
+                    <span>Case ID: <code style="color:var(--cyan);">${c.case_id}</code></span>
+                    <span>Category: <strong>${c.case_type}</strong></span>
+                    <span>Created: ${new Date(c.created_at).toLocaleDateString()}</span>
+                  </div>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    function selectCase(id) {
+      activeCaseId = id;
+      updateCaseSelector();
+      renderCurrentTab();
+    }
+
+    async function handleCreateCase(e) {
+      e.preventDefault();
+      const title = document.getElementById('cTitle').value;
+      const type = document.getElementById('cType').value;
+      const desc = document.getElementById('cDesc').value;
+      try {
+        const created = await fetchJSON(`${API}/cases`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ title, case_type: type, description: desc, timezone: 'UTC' })
+        });
+        cases.unshift(created);
+        activeCaseId = created.case_id;
+        updateCaseSelector();
+        showToast(`Case ${created.case_id} opened successfully!`);
+        renderCurrentTab();
+      } catch (err) {
+        showToast(err.message, true);
+      }
+    }
+
+    /* 2. EVIDENCE VAULT */
+    async function renderEvidence(main) {
+      if (!activeCaseId) {
+        main.innerHTML = '<div class="forensic-card">Please select an active case first.</div>';
+        return;
+      }
+      const evidence = await fetchJSON(`${API}/cases/${activeCaseId}/evidence`).catch(() => []);
+
+      main.innerHTML = `
+        <div class="forensic-card">
+          <div class="forensic-card-header">
+            <div>
+              <span class="forensic-card-title">&#128190; Forensic Evidence Vault</span>
+              <p style="font-size:0.8rem; color:var(--text-med); margin-top:0.25rem;">
+                Files are written to immutable vault storage. SHA-256 baseline hash is computed on arrival and locked against tamper.
+              </p>
+            </div>
+            <label class="btn btn-primary" style="cursor:pointer;">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+              <span>Import / Acquire File</span>
+              <input type="file" style="display:none;" onchange="handleFileUpload(event)" />
+            </label>
+          </div>
+
+          <div class="table-container">
+            <table>
+              <thead>
+                <tr>
+                  <th>Evidence ID</th>
+                  <th>Original Filename</th>
+                  <th>Size</th>
+                  <th>SHA-256 Baseline Hash</th>
+                  <th>Integrity</th>
+                  <th>Parser Engine</th>
+                  <th>Extracted Records</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                ${evidence.length === 0 ? '<tr><td colspan="8" style="text-align:center; color:var(--text-dim); padding:3rem;">No forensic evidence files vaulted for this case yet. Click "Import / Acquire File" or load demo case.</td></tr>' : evidence.map(ev => `
+                  <tr>
+                    <td><code style="color:var(--cyan); font-weight:700;">${ev.evidence_id}</code></td>
+                    <td><strong style="color:var(--text-high);">${ev.identity.original_filename}</strong></td>
+                    <td>${(ev.identity.size_bytes/1024).toFixed(1)} KB</td>
+                    <td class="hash-val">${ev.acquisition.original_sha256}</td>
+                    <td><span class="badge badge-${ev.integrity.status}">${ev.integrity.status}</span></td>
+                    <td><span style="color:var(--text-med);">${ev.processing.parser}</span></td>
+                    <td><strong style="color:var(--cyan);">${ev.provenance.derived_record_count}</strong></td>
+                    <td>
+                      <div style="display:flex; gap:0.4rem;">
+                        <button class="btn btn-sm btn-success" onclick="verifyEvidence('${ev.evidence_id}')">Re-Verify Hash</button>
+                        <button class="btn btn-sm btn-secondary" onclick="reprocessEvidence('${ev.evidence_id}')">Reprocess</button>
+                      </div>
+                    </td>
+                  </tr>
+                `).join('')}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      `;
+    }
+
+    async function handleFileUpload(e) {
+      const file = e.target.files[0];
+      if (!file || !activeCaseId) return;
+      const fd = new FormData();
+      fd.append('file', file);
+      fd.append('acquired_by', 'investigator_001');
+      try {
+        showToast('Preserving in immutable vault and computing SHA-256...');
+        const res = await fetchJSON(`${API}/cases/${activeCaseId}/evidence`, { method: 'POST', body: fd });
+        showToast(`Evidence preserved & verified. ${res.indexed_events_count} records extracted.`);
+        await checkAuditLedger();
+        renderCurrentTab();
+      } catch (err) {
+        showToast(err.message, true);
+      }
+    }
+
+    async function verifyEvidence(evId) {
+      try {
+        const res = await fetchJSON(`${API}/evidence/${evId}/verify`, { method: 'POST' });
+        showToast(res.integrity_verified ? 'SHA-256 matches baseline hash exactly. Vault verified.' : 'HASH MISMATCH! Tamper detected!', !res.integrity_verified);
+        renderCurrentTab();
+      } catch (err) {
+        showToast(err.message, true);
+      }
+    }
+
+    async function reprocessEvidence(evId) {
+      try {
+        const res = await fetchJSON(`${API}/evidence/${evId}/reprocess`, { method: 'POST' });
+        showToast(`Reprocessed ${res.reprocessed_records} events from immutable vault.`);
+        renderCurrentTab();
+      } catch (err) {
+        showToast(err.message, true);
+      }
+    }
+
+    /* 3. TIMELINE & EVENTS */
+    async function renderTimeline(main) {
+      if (!activeCaseId) {
+        main.innerHTML = '<div class="forensic-card">Please select a case.</div>';
+        return;
+      }
+      const data = await fetchJSON(`${API}/investigations/${activeCaseId}/timeline`).catch(() => ({ events: [] }));
+      currentEventsCache = data.events || [];
+
+      main.innerHTML = `
+        <div class="forensic-card">
+          <div class="forensic-card-header">
+            <div>
+              <span class="forensic-card-title">&#9201; Forensic Chronological Timeline</span>
+              <p style="font-size:0.8rem; color:var(--text-med); margin-top:0.25rem;">
+                Normalized, UTC-synchronized event stream reconstructed from multi-source artifacts.
+              </p>
+            </div>
+            <div style="font-size:0.85rem; color:var(--text-med); font-weight:700;">
+              ${currentEventsCache.length} Chronological Records
+            </div>
+          </div>
+
+          <!-- Activity Density Bar -->
+          <div style="background:var(--bg-input); border:1px solid var(--border-subtle); border-radius:6px; padding:0.75rem 1rem; margin-bottom:1rem; display:flex; align-items:center; gap:1rem;">
+            <span style="font-size:0.75rem; text-transform:uppercase; color:var(--text-dim); font-weight:700;">Activity Density</span>
+            <div style="flex:1; height:12px; background:var(--bg-card); border-radius:4px; overflow:hidden; display:flex;">
+              <div style="width:25%; background:var(--cyan); height:100%;" title="USB Connection Activity"></div>
+              <div style="width:40%; background:var(--emerald); height:100%;" title="File Access / Modification"></div>
+              <div style="width:20%; background:var(--amber); height:100%;" title="Removable Storage Writes"></div>
+              <div style="width:15%; background:var(--violet); height:100%;" title="Hash Baseline Events"></div>
+            </div>
+            <span style="font-size:0.75rem; color:var(--text-med); font-family:var(--font-mono);">Bounded UTC Horizon</span>
+          </div>
+
+          <!-- Event Stream -->
+          <div>
+            ${currentEventsCache.length === 0 ? '<div style="text-align:center; color:var(--text-dim); padding:3rem;">No timeline records found. Ingest evidence files to populate chronological stream.</div>' : currentEventsCache.map((ev, idx) => `
+              <div class="timeline-node">
+                <div>
+                  <div style="font-family:var(--font-mono); font-size:0.8rem; color:var(--cyan); font-weight:700;">
+                    ${new Date(ev.time.timestamp_utc).toISOString().replace('T', ' ').substring(0, 19)}
+                  </div>
+                  <div style="font-size:0.7rem; color:var(--text-dim);">UTC Normalized</div>
+                </div>
+
+                <div>
+                  <span class="badge badge-observed" style="font-size:0.75rem;">${ev.event.type.replace('_', ' ')}</span>
+                  <div style="font-size:0.7rem; color:var(--text-med); margin-top:0.25rem;">${ev.event.action}</div>
+                </div>
+
+                <div style="font-size:0.85rem;">
+                  <div style="font-weight:700; color:var(--text-high);">${ev.file.path || ev.file.name || ev.process.name || ev.device.identifier || 'Forensic System Event'}</div>
+                  <div style="display:flex; gap:1.25rem; font-size:0.75rem; color:var(--text-med); margin-top:0.35rem;">
+                    ${ev.actor.username ? `<span>User: <strong>${ev.actor.username}</strong></span>` : ''}
+                    ${ev.host.hostname ? `<span>Host: <strong>${ev.host.hostname}</strong></span>` : ''}
+                    ${ev.device.identifier ? `<span>Device: <code style="color:var(--cyan);">${ev.device.identifier}</code></span>` : ''}
+                    ${ev.source.record_locator ? `<span style="color:var(--text-dim);">Locator: ${ev.source.record_locator}</span>` : ''}
+                  </div>
+                </div>
+
+                <div style="text-align:right;">
+                  <button class="btn btn-sm btn-secondary" onclick="inspectEvent(${idx})">Inspect</button>
+                </div>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+      `;
+    }
+
+    /* 4. EVIDENCE GAP ANALYSIS (EGA) */
+    async function renderCoverage(main) {
+      if (!activeCaseId) {
+        main.innerHTML = '<div class="forensic-card">Please select a case.</div>';
+        return;
+      }
+      const cov = await fetchJSON(`${API}/investigations/${activeCaseId}/coverage?playbook_id=${currentPlaybook}`).catch(() => null);
+
+      main.innerHTML = `
+        <div class="forensic-card" style="display:grid; grid-template-columns:1fr 300px; gap:2rem; align-items:center;">
+          <div>
+            <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:0.5rem;">
+              <span class="forensic-card-title">&#9881; Evidence Gap Analysis Engine</span>
+              <select onchange="onPlaybookChange(this.value)" style="margin:0; width:auto; font-weight:700; color:var(--cyan);">
+                <option value="usb_data_exfiltration" ${currentPlaybook === 'usb_data_exfiltration' ? 'selected' : ''}>Scenario: USB Data Exfiltration (P0)</option>
+                <option value="ransomware_activity" ${currentPlaybook === 'ransomware_activity' ? 'selected' : ''}>Scenario: Ransomware Encryption (P1)</option>
+              </select>
+            </div>
+            <p style="font-size:0.85rem; color:var(--text-med); line-height:1.5;">
+              The EGA engine evaluates collected evidence artifacts against formal investigation playbooks. It
+              mathematically computes artifact coverage and differentiates between <strong>Observed</strong>,
+              <strong>Partial</strong>, <strong>Not Found</strong>, and <strong>Not Collected</strong> sources to eliminate
+              speculative investigation conclusions.
+            </p>
+            <div style="font-size:0.75rem; color:var(--text-dim); border-left:3px solid var(--cyan); padding-left:0.75rem; margin-top:0.75rem;">
+              ${cov?.disclaimer || ''}
+            </div>
+          </div>
+
+          <div style="background:var(--bg-card); border:1px solid var(--border-bright); border-radius:10px; padding:1.5rem; text-align:center; box-shadow:0 0 20px rgba(0,0,0,0.4);">
+            <div style="font-size:0.75rem; color:var(--text-med); text-transform:uppercase; font-weight:700; letter-spacing:0.05em;">Coverage Completion</div>
+            <div style="font-size:3rem; font-weight:900; color:${cov?.coverage_score >= 70 ? 'var(--emerald)' : cov?.coverage_score >= 40 ? 'var(--amber)' : 'var(--rose)'}; margin:0.35rem 0;">
+              ${cov?.coverage_score ?? 0}%
+            </div>
+            <div style="background:var(--border-subtle); height:8px; border-radius:999px; overflow:hidden;">
+              <div style="width:${cov?.coverage_score ?? 0}%; height:100%; background:linear-gradient(90deg, #0284c7 0%, #38bdf8 100%);"></div>
+            </div>
+          </div>
+        </div>
+
+        <div style="display:grid; grid-template-columns:1fr 400px; gap:1.5rem;">
+          <div class="forensic-card">
+            <div class="forensic-card-header">
+              <span class="forensic-card-title">&#128221; Playbook Requirement Evaluation</span>
+            </div>
+            ${!cov ? '<p style="color:var(--text-dim);">No coverage evaluated.</p>' : cov.evaluations.map(r => `
+              <div style="background:var(--bg-card); border:1px solid var(--border-subtle); border-radius:8px; padding:1rem; margin-bottom:0.75rem;">
+                <div style="display:flex; justify-content:space-between; align-items:center;">
+                  <strong style="color:var(--text-high); font-size:0.95rem;">${r.label}</strong>
+                  <span class="badge badge-${r.status}">${r.status}</span>
+                </div>
+                <div style="font-size:0.8rem; color:var(--text-med); margin-top:0.4rem;">${r.notes}</div>
+                ${r.missing_fields && r.missing_fields.length > 0 ? `<div style="font-size:0.75rem; color:var(--rose); margin-top:0.35rem;">Missing attributes: ${r.missing_fields.join(', ')}</div>` : ''}
+              </div>
+            `).join('')}
+          </div>
+
+          <div class="forensic-card">
+            <div class="forensic-card-header">
+              <span class="forensic-card-title">&#128161; Actionable Investigation Guidance</span>
+            </div>
+            ${(!cov?.recommendations || cov.recommendations.length === 0) ? '<p style="color:var(--text-dim); padding:1rem;">All required forensic predicates observed. No gap actions needed.</p>' : cov.recommendations.map(rec => `
+              <div style="background:var(--bg-card); border-left:4px solid var(--cyan); padding:0.85rem; margin-bottom:0.75rem; border-radius:4px; font-size:0.85rem; color:var(--text-high); line-height:1.45;">
+                ${rec}
+              </div>
+            `).join('')}
+          </div>
+        </div>
+      `;
+    }
+
+    function onPlaybookChange(val) {
+      currentPlaybook = val;
+      renderCurrentTab();
+    }
+
+    /* 5. CLAIM VERIFICATION (CAV) */
+    async function renderClaims(main) {
+      if (!activeCaseId) {
+        main.innerHTML = '<div class="forensic-card">Please select a case.</div>';
+        return;
+      }
+      const claims = await fetchJSON(`${API}/cases/${activeCaseId}/claims`).catch(() => []);
+
+      main.innerHTML = `
+        <div class="grid-form-list">
+          <div class="forensic-card">
+            <div class="forensic-card-header">
+              <span class="forensic-card-title">&#10003; Register Atomic Claim</span>
+            </div>
+            <form onsubmit="handleCreateClaim(event)">
+              <label>Claim Statement *</label>
+              <textarea id="clmStmt" rows="3" required placeholder="e.g. User jsmith copied confidential financial reports to unauthorized USB drive."></textarea>
+              <label>Suspected Actor / User ID</label>
+              <input id="clmSubj" placeholder="e.g. jsmith" />
+              <label>Target Object (File Name)</label>
+              <input id="clmObj" placeholder="e.g. q4_financial_projections.pdf" />
+              <label>Target Device Identifier</label>
+              <input id="clmDev" placeholder="e.g. SANDISK-32GB-SN90214" />
+              <button type="submit" class="btn btn-primary" style="width:100%;">Register Claim</button>
+            </form>
+          </div>
+
+          <div>
+            ${claims.length === 0 ? '<div class="forensic-card" style="text-align:center; color:var(--text-dim); padding:3rem;">No claims registered yet. Enter an investigative hypothesis on the left or load demo case.</div>' : claims.map(c => `
+              <div class="forensic-card" id="claim_card_${c.claim_id}">
+                <div style="display:flex; justify-content:space-between; align-items:flex-start;">
+                  <div>
+                    <div style="font-size:0.75rem; font-family:var(--font-mono); color:var(--cyan);">${c.claim_id} &bull; ${c.claim_type}</div>
+                    <div style="font-weight:700; font-size:1.05rem; margin:0.35rem 0; color:var(--text-high);">"${c.statement}"</div>
+                  </div>
+                  <button class="btn btn-primary btn-sm" onclick="verifyClaim('${c.claim_id}')">Run CAV</button>
+                </div>
+                <div id="assessment_${c.claim_id}" style="margin-top:1rem;"></div>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+      `;
+
+      for (const c of claims) {
+        const assList = await fetchJSON(`${API}/claims/${c.claim_id}/assessments`).catch(() => []);
+        if (assList && assList.length > 0) {
+          renderAssessmentCard(c.claim_id, assList[0]);
+        }
+      }
+    }
+
+    async function handleCreateClaim(e) {
+      e.preventDefault();
+      const statement = document.getElementById('clmStmt').value;
+      const subject = document.getElementById('clmSubj').value;
+      const object = document.getElementById('clmObj').value;
+      const target_device = document.getElementById('clmDev').value;
+      try {
+        await fetchJSON(`${API}/cases/${activeCaseId}/claims`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ statement, subject, object, target_device, claim_type: 'usb_file_transfer' })
+        });
+        showToast('Claim registered successfully.');
+        await checkAuditLedger();
+        renderCurrentTab();
+      } catch (err) {
+        showToast(err.message, true);
+      }
+    }
+
+    async function verifyClaim(claimId) {
+      try {
+        showToast('Evaluating deterministic verification rules & predicates...');
+        const ass = await fetchJSON(`${API}/claims/${claimId}/verify`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ playbook_id: currentPlaybook })
+        });
+        renderAssessmentCard(claimId, ass);
+        showToast(`CAV Outcome: ${ass.status.toUpperCase()}`);
+        await checkAuditLedger();
+      } catch (err) {
+        showToast(err.message, true);
+      }
+    }
+
+    function renderAssessmentCard(claimId, ass) {
+      const container = document.getElementById(`assessment_${claimId}`);
+      if (!container) return;
+      container.innerHTML = `
+        <div style="background:var(--bg-input); border:1px solid var(--border-bright); border-radius:8px; padding:1rem;">
+          <div style="display:flex; justify-content:space-between; align-items:center;">
+            <span style="font-size:0.75rem; color:var(--text-med); font-family:var(--font-mono);">CAV Assessment v${ass.verification_rule_version}</span>
+            <span class="badge badge-${ass.status}">${ass.status}</span>
+          </div>
+
+          <div style="font-size:0.85rem; margin-top:0.75rem;">
+            <span style="color:var(--text-med);">Supporting Forensic Records: </span>
+            ${ass.supporting_evidence.length === 0 ? '<span style="color:var(--text-dim);">None</span>' : ass.supporting_evidence.map(id => `<code style="color:var(--cyan); background:rgba(56, 189, 248, 0.1); padding:0.15rem 0.45rem; border-radius:4px;">${id}</code>`).join(' ')}
+          </div>
+
+          ${ass.limitations.length > 0 ? `
+            <div style="font-size:0.8rem; color:var(--rose); margin-top:0.6rem; border-left:3px solid var(--rose); padding-left:0.5rem;">
+              ${ass.limitations.map(l => `<div>&bull; ${l}</div>`).join('')}
+            </div>
+          ` : ''}
+
+          <div style="font-size:0.75rem; color:var(--text-dim); margin-top:0.75rem; display:flex; justify-content:space-between; border-top:1px solid var(--border-subtle); padding-top:0.5rem;">
+            <span>Assessment ID: ${ass.assessment_id}</span>
+            <span>Human Review Required: <strong>${ass.requires_human_review ? 'YES' : 'NO'}</strong></span>
+          </div>
+        </div>
+      `;
+    }
+
+    /* 6. CORRELATIONS */
+    async function renderCorrelations(main) {
+      if (!activeCaseId) {
+        main.innerHTML = '<div class="forensic-card">Please select a case.</div>';
+        return;
+      }
+      const data = await fetchJSON(`${API}/investigations/${activeCaseId}/correlations`).catch(() => ({ correlations: [] }));
+      const corrs = data.correlations || [];
+
+      main.innerHTML = `
+        <div class="forensic-card">
+          <div class="forensic-card-header">
+            <div>
+              <span class="forensic-card-title">&#128279; Cross-Source Event Correlations</span>
+              <p style="font-size:0.8rem; color:var(--text-med); margin-top:0.25rem;">
+                Discovered candidate temporal &amp; identity relationships within a bounded 300s threshold.
+              </p>
+            </div>
+            <span style="font-size:0.85rem; color:var(--text-med); font-weight:700;">${corrs.length} Discovered Pairs</span>
+          </div>
+
+          <div>
+            ${corrs.length === 0 ? '<div style="text-align:center; color:var(--text-dim); padding:3rem;">No correlated pairs discovered within temporal window.</div>' : corrs.map(c => `
+              <div style="background:var(--bg-card); border:1px solid var(--border-subtle); border-radius:8px; padding:1.25rem; margin-bottom:0.85rem;">
+                <div style="display:flex; justify-content:space-between; align-items:center;">
+                  <code style="color:var(--cyan); font-weight:700;">${c.correlation_id}</code>
+                  <span class="badge" style="background:rgba(56, 189, 248, 0.1); color:var(--cyan);">Delta: ${c.time_delta_seconds}s</span>
+                </div>
+                <div style="font-size:0.95rem; font-weight:600; color:var(--text-high); margin-top:0.4rem;">${c.notes}</div>
+                <div style="font-size:0.75rem; color:var(--text-dim); margin-top:0.5rem; display:flex; gap:1.5rem;">
+                  <span>Source Event: <code>${c.source_event_id}</code></span>
+                  <span>Target Event: <code>${c.target_event_id}</code></span>
+                  <span>Causation Established: <strong>${c.causation_established ? 'YES' : 'NO (Candidate)'}</strong></span>
+                </div>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+      `;
+    }
+
+    /* 7. REPORTS */
+    async function renderReports(main) {
+      if (!activeCaseId) {
+        main.innerHTML = '<div class="forensic-card">Please select a case.</div>';
+        return;
+      }
+      main.innerHTML = `
+        <div class="forensic-card">
+          <div class="forensic-card-header">
+            <div>
+              <span class="forensic-card-title">&#128196; Reproducible Investigation Reports</span>
+              <p style="font-size:0.8rem; color:var(--text-med); margin-top:0.25rem;">
+                Compiles verified evidence custody, EGA coverage, and CAV claim outcomes into manifest-hashed reports.
+              </p>
+            </div>
+            <button class="btn btn-primary" onclick="generateReport()">+ Generate Verified Report</button>
+          </div>
+          <div id="reportList"></div>
+        </div>
+      `;
+    }
+
+    async function generateReport() {
+      try {
+        showToast('Compiling report package and computing SHA-256 manifest...');
+        const pkg = await fetchJSON(`${API}/cases/${activeCaseId}/reports`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ playbook_id: currentPlaybook })
+        });
+        showToast(`Report ${pkg.report_id} generated!`);
+        await checkAuditLedger();
+        const list = document.getElementById('reportList');
+        list.innerHTML = `
+          <div style="background:var(--bg-card); border:1px solid var(--border-bright); border-radius:8px; padding:1.25rem; margin-top:1rem;">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+              <div>
+                <strong style="color:var(--cyan); font-size:1rem;">Report ID: ${pkg.report_id}</strong>
+                <div class="hash-val" style="margin-top:0.35rem;">Manifest SHA-256: ${pkg.manifest_sha256}</div>
+              </div>
+              <div style="display:flex; gap:0.5rem;">
+                <a href="${API}/reports/${pkg.report_id}/download?format=html" target="_blank" class="btn btn-primary btn-sm">Open HTML Report</a>
+                <a href="${API}/reports/${pkg.report_id}/download?format=json" download class="btn btn-secondary btn-sm">Download JSON</a>
+              </div>
+            </div>
+          </div>
+        ` + list.innerHTML;
+      } catch (err) {
+        showToast(err.message, true);
+      }
+    }
+
+    /* 8. AUDIT LEDGER */
+    async function renderAudit(main) {
+      const events = await fetchJSON(`${API}/audit?limit=100`).catch(() => []);
+
+      main.innerHTML = `
+        <div class="forensic-card">
+          <div class="forensic-card-header">
+            <div>
+              <span class="forensic-card-title">&#128274; Cryptographic Append-Only Audit Trail</span>
+              <p style="font-size:0.8rem; color:var(--text-med); margin-top:0.25rem;">
+                Every case mutation, acquisition, hash check, and claim assessment is hashed into an immutable SHA-256 chain.
+              </p>
+            </div>
+            <button class="btn btn-sm btn-primary" onclick="checkAuditLedger()">Verify Chain Integrity</button>
+          </div>
+
+          <div>
+            ${events.length === 0 ? '<div style="text-align:center; color:var(--text-dim); padding:3rem;">No audit transactions recorded yet.</div>' : events.map((aud, i) => `
+              <div style="background:var(--bg-card); border:1px solid var(--border-subtle); border-radius:8px; padding:0.85rem 1.25rem; margin-bottom:0.6rem; display:grid; grid-template-columns:50px 220px 1fr 180px; gap:1rem; align-items:center;">
+                <span style="font-weight:800; color:var(--text-dim); font-size:0.85rem;">#${i+1}</span>
+                <div>
+                  <strong style="color:var(--cyan); font-size:0.85rem;">${aud.action}</strong>
+                  <div style="font-size:0.75rem; color:var(--text-dim);">Actor: ${aud.actor_id}</div>
+                </div>
+                <div class="hash-val" style="font-size:0.75rem;">
+                  <div>Hash: <span style="color:var(--text-high);">${aud.record_hash}</span></div>
+                  <div style="color:var(--text-dim);">Prev: ${aud.previous_record_hash}</div>
+                </div>
+                <div style="font-size:0.75rem; color:var(--text-med); text-align:right;">
+                  ${new Date(aud.timestamp_utc).toISOString().replace('T', ' ').substring(0, 19)} UTC
+                </div>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+      `;
+    }
+
+    window.onload = init;
+  </script>
+</body>
+</html>
