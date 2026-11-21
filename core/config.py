@@ -2,13 +2,28 @@
 from pathlib import Path
 from pydantic import BaseModel
 import os
+import sys
 
-BASE_DIR = Path(__file__).resolve().parent.parent
+# Determine base directory dynamically (supports frozen PyInstaller executable)
+if getattr(sys, "frozen", False):
+    BASE_DIR = Path(sys.executable).parent
+    MEIPASS_DIR = Path(getattr(sys, "_MEIPASS", BASE_DIR / "_internal"))
+else:
+    BASE_DIR = Path(__file__).resolve().parent.parent
+    MEIPASS_DIR = BASE_DIR
+
 DATA_DIR = BASE_DIR / "data"
 VAULT_DIR = DATA_DIR / "vault"
 DATABASE_DIR = DATA_DIR / "db"
 REPORTS_DIR = DATA_DIR / "reports"
-PLAYBOOKS_DIR = BASE_DIR / "playbooks" / "scenarios"
+
+# Playbooks location: search local base dir, then internal bundled dir
+if (BASE_DIR / "playbooks" / "scenarios").exists():
+    PLAYBOOKS_DIR = BASE_DIR / "playbooks" / "scenarios"
+elif (MEIPASS_DIR / "playbooks" / "scenarios").exists():
+    PLAYBOOKS_DIR = MEIPASS_DIR / "playbooks" / "scenarios"
+else:
+    PLAYBOOKS_DIR = BASE_DIR / "playbooks" / "scenarios"
 
 # Ensure runtime directories exist
 for directory in [DATA_DIR, VAULT_DIR, DATABASE_DIR, REPORTS_DIR, PLAYBOOKS_DIR]:

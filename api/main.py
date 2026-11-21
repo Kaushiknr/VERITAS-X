@@ -82,16 +82,22 @@ app.include_router(audit_router, prefix="/api/v1")
 
 import sys
 
-# Mount Static Web Assets if built
+# Locate static web assets across frozen and source runtimes
+candidate_web_dirs = []
 if getattr(sys, "frozen", False):
-    web_dist = Path(sys._MEIPASS) / "web" / "dist"
-else:
-    web_dist = Path(__file__).resolve().parent.parent / "web" / "dist"
+    candidate_web_dirs.append(Path(sys.executable).parent / "_internal" / "web" / "dist")
+    if hasattr(sys, "_MEIPASS"):
+        candidate_web_dirs.append(Path(sys._MEIPASS) / "web" / "dist")
+    candidate_web_dirs.append(Path(sys.executable).parent / "web" / "dist")
+candidate_web_dirs.append(Path(__file__).resolve().parent.parent / "web" / "dist")
 
-if not web_dist.exists():
-    web_dist = Path(__file__).resolve().parent.parent / "web" / "dist"
+web_dist = None
+for candidate in candidate_web_dirs:
+    if (candidate / "index.html").exists():
+        web_dist = candidate
+        break
 
-if web_dist.exists():
+if web_dist and web_dist.exists():
     assets_dir = web_dist / "assets"
     if assets_dir.exists():
         app.mount("/assets", StaticFiles(directory=str(assets_dir)), name="assets")
